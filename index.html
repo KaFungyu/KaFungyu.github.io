@@ -2,311 +2,533 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>伊犁山水·花海寻踪4日精华游</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>深圳 - 伊犁 4日梦幻之旅</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f0f0f0; /* 浅灰色背景，更接近iOS的一些界面背景 */
+            color: #1c1c1e; /* iOS深色文字颜色 */
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "San Francisco", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 800px; /* iPad优化，手机上会自动适应 */
             margin: 0 auto;
             padding: 15px;
         }
-        .header {
-            background-color: #007AFF; /* iOS Blue */
-            color: white;
+
+        .header-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            text-align: center;
-            border-radius: 10px 10px 0 0;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 24px;
-        }
-        .header p {
-            margin: 5px 0 0;
-            font-size: 14px;
-        }
-        .day-card {
-            background-color: white;
-            border-radius: 10px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            overflow: hidden;
+            text-align: center;
         }
-        .day-header {
-            background-color: #f0f0f0;
-            padding: 15px;
-            font-weight: bold;
-            font-size: 18px;
-            border-bottom: 1px solid #e0e0e0;
+
+        .header-card h1 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #007aff; /* iOS蓝色 */
+            margin: 0 0 10px 0;
         }
-        .day-content {
-            padding: 15px;
-        }
-        .day-content h3 {
-            color: #007AFF;
+
+        .header-card p {
             font-size: 16px;
-            margin-top: 15px;
-            margin-bottom: 8px;
-            border-left: 3px solid #007AFF;
-            padding-left: 8px;
+            color: #8e8e93; /* iOS辅助灰色文字 */
+            margin: 0;
         }
-        .day-content p, .day-content ul {
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+            padding: 18px;
+            overflow: hidden; /* 确保圆角生效 */
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-title .icon { /* 预留图标位置 */
+            margin-right: 10px;
+            font-size: 24px; /* 示例大小 */
+            color: #007aff;
+        }
+
+        .weather-forecast {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e5ea; /* iOS分割线颜色 */
+        }
+
+        .weather-day {
+            text-align: center;
+            flex: 1;
+        }
+
+        .weather-day .date {
             font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 10px;
+            font-weight: 500;
+            color: #3c3c43; /* iOS次要文字颜色 */
         }
-        .day-content ul {
-            padding-left: 20px;
+
+        .weather-day .icon { /* 天气图标，可以用emoji或图片 */
+            font-size: 28px;
+            margin: 8px 0;
         }
-        .day-content ul li {
+
+        .weather-day .temp {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .weather-day .condition, .weather-day .wind {
+            font-size: 13px;
+            color: #8e8e93;
+        }
+
+        .itinerary-item, .dining-item, .accommodation-item, .cost-item, .tip-item {
+            margin-bottom: 18px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e5e5ea;
+        }
+        .itinerary-item:last-child, .dining-item:last-child, .accommodation-item:last-child, .cost-item:last-child, .tip-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .itinerary-item h4, .dining-item h4, .accommodation-item h4 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #1c1c1e;
+        }
+
+        .itinerary-item .time-location, .dining-item .details, .accommodation-item .details {
+            font-size: 14px;
+            color: #3c3c43;
             margin-bottom: 5px;
         }
-        .icon {
-            margin-right: 8px;
-            font-size: 16px;
+        
+        .itinerary-item .description, .dining-item .description, .accommodation-item .description {
+            font-size: 14px;
+            color: #636366; /* iOS较深灰色文字 */
+            line-height: 1.5;
         }
-        .price-summary {
-            background-color: #e6f3ff;
-            padding: 15px;
+
+        .button {
+            display: inline-block;
+            background-color: #007aff;
+            color: white;
+            padding: 10px 18px;
             border-radius: 8px;
-            margin-top: 15px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
         }
-        .price-summary h3 {
-            color: #0056b3;
-            margin-top: 0;
+
+        .button:hover {
+            background-color: #005ecb;
         }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 12px;
-            color: #777;
+
+        .cost-summary strong {
+            color: #007aff;
         }
-        .weather-info {
-            background-color: #FFFBEA; /* Light yellow */
-            border: 1px solid #FFE58F; /* Yellow border */
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 10px;
+
+        .list {
+            list-style-type: none;
+            padding-left: 0;
         }
-        .weather-info strong {
-            color: #D46B08; /* Dark yellow/orange */
+
+        .list li {
+            padding: 5px 0;
+            font-size: 14px;
+            color: #3c3c43;
         }
+        
+        .list li::before {
+            content: "• ";
+            color: #007aff;
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .header-card h1 {
+                font-size: 24px;
+            }
+            .header-card p {
+                font-size: 15px;
+            }
+            .card-title {
+                font-size: 20px;
+            }
+            .weather-forecast {
+                flex-direction: column; /* 窄屏幕下垂直排列 */
+            }
+            .weather-day {
+                padding: 8px 0;
+                border-bottom: 1px solid #e5e5ea;
+                width: 100%;
+            }
+            .weather-day:last-child {
+                border-bottom: none;
+            }
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>伊犁山水·花海寻踪4日精华游</h1>
-            <p>深圳出发 (6月12日 - 6月15日)</p>
+        <div class="header-card">
+            <h1>伊犁4日梦幻之旅</h1>
+            <p>从深圳出发，探索壮美伊犁河谷 (6月12日 - 6月15日)</p>
         </div>
 
-        <!-- Day 1: 深圳 → 伊宁 -->
-        <div class="day-card">
-            <div class="day-header">
-                <span class="icon">✈️</span>Day 1: 深圳 → 伊宁 (6月12日，星期三)
-            </div>
-            <div class="day-content">
-                <h3><span class="icon">🗺️</span>行程安排</h3>
-                <ul>
-                    <li>上午：从深圳宝安国际机场(SZX)乘机前往伊宁机场(YIN)。飞行时间较长，可能需要中转。</li>
-                    <li>下午：抵达伊宁市，导游接机，送往酒店办理入住。</li>
-                    <li>傍晚：稍作休息，适应当地气候。</li>
-                    <li>晚上：欢迎晚宴，品尝新疆特色美食。</li>
-                </ul>
-
-                <h3><span class="icon">🍽️</span>餐饮安排</h3>
-                <ul>
-                    <li>早餐：敬请自理</li>
-                    <li>午餐：机上简餐或自理 (根据航班情况)</li>
-                    <li>晚餐：团队欢迎晚宴 (新疆风味，参考餐标：80元/人)</li>
-                </ul>
-
-                <h3><span class="icon">🏨</span>住宿参考</h3>
-                <p>伊宁市舒适型酒店 (参考标准：四星级或同级，如伊犁大酒店、伊宁天缘国际酒店或同级)</p>
-                <p>参考价格：约 350-500元/间/晚</p>
-
-                <h3><span class="icon">🚗</span>交通方式</h3>
-                <p>飞机 (深圳 → 伊宁) + 当地旅游大巴</p>
-
-                <div class="weather-info">
-                    <p><strong><span class="icon">☀️</span>天气状况 (伊宁6月中旬参考):</strong></p>
-                    <p>气温约15°C - 28°C，白天温暖舒适，早晚较凉。多云或晴天为主，偶有阵雨。紫外线较强。</p>
-                    <p><strong>穿着建议：</strong>白天气温适宜，可穿着短袖T恤、薄长袖衫、长裤。早晚需备薄外套或冲锋衣。雨具、太阳帽、墨镜、防晒霜必备。</p>
+        <!-- 1. 每日天气预报 -->
+        <div class="card">
+            <h3 class="card-title"><span class="icon">☀️</span>每日天气预报</h3>
+            <div class="weather-forecast">
+                <div class="weather-day">
+                    <div class="date">6月12日 (周三)</div>
+                    <div class="icon">🌦️</div> <!-- 示例图标，请替换为实际 -->
+                    <div class="temp">15°C / 28°C</div>
+                    <div class="condition">多云转阵雨</div>
+                    <div class="wind">微风 <3级</div>
                 </div>
-
-                <h3><span class="icon">💰</span>当日预估消费 (不含大交通)</h3>
-                <ul>
-                    <li>住宿：约 175-250元/人 (按双人拼房计)</li>
-                    <li>餐饮：约 80元/人 (已含团队晚餐)</li>
-                    <li><strong>小计：约 255-330元/人</strong></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Day 2: 伊宁 → 赛里木湖 → 伊宁 -->
-        <div class="day-card">
-            <div class="day-header">
-                <span class="icon">🏞️</span>Day 2: 伊宁 → 赛里木湖 → 伊宁 (6月13日，星期四)
-            </div>
-            <div class="day-content">
-                <h3><span class="icon">🗺️</span>行程安排</h3>
-                <ul>
-                    <li>上午：早餐后，乘车前往“大西洋最后一滴眼泪”——【赛里木湖】(车程约2.5-3小时)。</li>
-                    <li>中午：赛里木湖景区周边用午餐。</li>
-                    <li>下午：进入赛里木湖景区，环湖游览，欣赏雪山、草原、森林、蔚蓝湖水交织的美景。可自费体验骑马或乘船。</li>
-                    <li>傍晚：乘车返回伊宁市。</li>
-                    <li>晚上：晚餐后入住酒店休息。</li>
-                </ul>
-
-                <h3><span class="icon">🍽️</span>餐饮安排</h3>
-                <ul>
-                    <li>早餐：酒店含早</li>
-                    <li>午餐：团队餐 (景区周边，参考餐标：50元/人)</li>
-                    <li>晚餐：团队餐 (伊宁市区，参考餐标：60元/人)</li>
-                </ul>
-
-                <h3><span class="icon">🏨</span>住宿参考</h3>
-                <p>伊宁市舒适型酒店 (同第一晚)</p>
-                <p>参考价格：约 350-500元/间/晚</p>
-
-                <h3><span class="icon">🚗</span>交通方式</h3>
-                <p>当地旅游大巴</p>
-
-                <div class="weather-info">
-                    <p><strong><span class="icon">☀️</span>天气状况 (赛里木湖6月中旬参考):</strong></p>
-                    <p>气温约8°C - 22°C，海拔较高，比伊宁市低5-8°C。风较大，紫外线强。天气变化快。</p>
-                    <p><strong>穿着建议：</strong>务必携带保暖衣物，如冲锋衣、抓绒衣。即使晴天，湖边风大也较冷。防晒、墨镜、帽子必备。</p>
+                <div class="weather-day">
+                    <div class="date">6月13日 (周四)</div>
+                    <div class="icon">☁️</div> <!-- 示例图标 -->
+                    <div class="temp">16°C / 27°C</div>
+                    <div class="condition">多云</div>
+                    <div class="wind">微风 <3级</div>
                 </div>
-
-                <h3><span class="icon">💰</span>当日预估消费 (不含大交通)</h3>
-                <ul>
-                    <li>门票：赛里木湖门票+区间车 约145元/人</li>
-                    <li>住宿：约 175-250元/人 (按双人拼房计)</li>
-                    <li>餐饮：约 110元/人 (已含团队午晚餐)</li>
-                    <li>自费项目(可选)：骑马约80-100元/小时，游船约100元/人</li>
-                    <li><strong>小计 (不含自费)：约 430-505元/人</strong></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Day 3: 伊宁 → 那拉提草原 → 伊宁 -->
-        <div class="day-card">
-            <div class="day-header">
-                <span class="icon">🌲</span>Day 3: 伊宁 → 那拉提草原 → 伊宁 (6月14日，星期五)
-            </div>
-            <div class="day-content">
-                <h3><span class="icon">🗺️</span>行程安排</h3>
-                <ul>
-                    <li>上午：早餐后，乘车前往世界四大高山河谷草原之一的【那拉提草原】(车程约3.5-4小时)。</li>
-                    <li>中午：那拉提镇用午餐。</li>
-                    <li>下午：进入那拉提核心景区（如空中草原或河谷草原），欣赏雪山、松林、草原交相辉映的壮丽景色，体验哈萨克民俗风情。可自费骑马深入草原。</li>
-                    <li>傍晚：乘车返回伊宁市 (车程较长，请做好准备)。</li>
-                    <li>晚上：晚餐后入住酒店。</li>
-                </ul>
-                <p><strong>特别注意：</strong>当天往返那拉提车程较长，较为辛苦。</p>
-
-                <h3><span class="icon">🍽️</span>餐饮安排</h3>
-                <ul>
-                    <li>早餐：酒店含早</li>
-                    <li>午餐：团队餐 (那拉提镇，参考餐标：50元/人)</li>
-                    <li>晚餐：团队餐 (伊宁市区，参考餐标：60元/人)</li>
-                </ul>
-
-                <h3><span class="icon">🏨</span>住宿参考</h3>
-                <p>伊宁市舒适型酒店 (同第一晚)</p>
-                <p>参考价格：约 350-500元/间/晚</p>
-
-                <h3><span class="icon">🚗</span>交通方式</h3>
-                <p>当地旅游大巴</p>
-
-                <div class="weather-info">
-                    <p><strong><span class="icon">☀️</span>天气状况 (那拉提6月中旬参考):</strong></p>
-                    <p>气温约12°C - 25°C。草原地区天气多变，紫外线强，注意防晒和保暖。</p>
-                    <p><strong>穿着建议：</strong>与赛里木湖类似，建议分层穿着，备好外套和雨具。舒适的鞋子适合草原活动。</p>
+                <div class="weather-day">
+                    <div class="date">6月14日 (周五)</div>
+                    <div class="icon">☀️</div> <!-- 示例图标 -->
+                    <div class="temp">17°C / 29°C</div>
+                    <div class="condition">晴</div>
+                    <div class="wind">微风 <3级</div>
                 </div>
-
-                <h3><span class="icon">💰</span>当日预估消费 (不含大交通)</h3>
-                <ul>
-                    <li>门票：那拉提门票+核心景区区间车 约155元/人 (参考空中草原)</li>
-                    <li>住宿：约 175-250元/人 (按双人拼房计)</li>
-                    <li>餐饮：约 110元/人 (已含团队午晚餐)</li>
-                    <li>自费项目(可选)：骑马约80-150元/小时</li>
-                    <li><strong>小计 (不含自费)：约 440-515元/人</strong></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Day 4: 伊宁 → 深圳 -->
-        <div class="day-card">
-            <div class="day-header">
-                <span class="icon">🏠</span>Day 4: 伊宁 → 深圳 (6月15日，星期六)
-            </div>
-            <div class="day-content">
-                <h3><span class="icon">🗺️</span>行程安排</h3>
-                <ul>
-                    <li>上午：早餐后，可前往伊宁市【喀赞其民俗旅游区】感受维吾尔族风情，或自由活动购买些当地特产 (如薰衣草制品、干果等)。具体安排视航班时间而定。</li>
-                    <li>中午：团队午餐或自理 (根据航班时间)。</li>
-                    <li>下午：根据航班时间，导游送往伊宁机场(YIN)，乘机返回深圳宝安国际机场(SZX)，结束愉快的伊犁之旅。</li>
-                </ul>
-
-                <h3><span class="icon">🍽️</span>餐饮安排</h3>
-                <ul>
-                    <li>早餐：酒店含早</li>
-                    <li>午餐：团队餐或自理 (参考餐标：50元/人)</li>
-                    <li>晚餐：敬请自理 (机上或抵达后)</li>
-                </ul>
-
-                <h3><span class="icon">🏨</span>住宿参考</h3>
-                <p>无</p>
-
-                <h3><span class="icon">🚗</span>交通方式</h3>
-                <p>当地旅游大巴 + 飞机 (伊宁 → 深圳)</p>
-
-                <div class="weather-info">
-                    <p><strong><span class="icon">☀️</span>天气状况 (伊宁6月中旬参考):</strong></p>
-                    <p>与第一日类似，气温约15°C - 28°C。</p>
+                <div class="weather-day">
+                    <div class="date">6月15日 (周六)</div>
+                    <div class="icon">🌤️</div> <!-- 示例图标 -->
+                    <div class="temp">18°C / 30°C</div>
+                    <div class="condition">晴间多云</div>
+                    <div class="wind">微风 <3级</div>
                 </div>
+            </div>
+            <p style="font-size: 14px; color: #636366; margin-top: 10px;"><strong>穿着建议：</strong>伊犁6月气温适宜，但昼夜温差较大，且天气多变。建议携带短袖、长袖T恤、薄外套、以及一件稍厚的外套以备早晚或阴雨天气。因日照强烈，务必做好防晒措施，如防晒霜、太阳帽、太阳镜。徒步建议穿着舒适的运动鞋或徒步鞋。</p>
+        </div>
 
-                <h3><span class="icon">💰</span>当日预估消费 (不含大交通)</h3>
-                <ul>
-                    <li>门票：喀赞其民俗区如需乘坐马车等体验项目，约50-100元/人 (可选)</li>
-                    <li>餐饮：约 50元/人 (如含团队午餐)</li>
-                    <li>特产购物：丰俭由人</li>
-                    <li><strong>小计 (不含购物及可选项目)：约 50元/人</strong></li>
-                </ul>
+        <!-- 2. 详细行程安排 -->
+        <div class="card">
+            <h3 class="card-title"><span class="icon">🗺️</span>详细行程安排</h3>
+            
+            <!-- 第1天 -->
+            <div class="itinerary-item">
+                <h4>6月12日 (周三): 抵达伊宁，初探河谷风情</h4>
+                <div class="time-location"><strong>上午/中午：</strong>深圳宝安国际机场 (SZX) → 伊宁机场 (YIN)</div>
+                <div class="description">
+                    <p>搭乘早班机从深圳飞往伊宁。飞行时间约5-6小时（不含中转）。抵达伊宁机场后，建议提前预订接机或打车前往市区酒店办理入住。</p>
+                    <p><strong>交通：</strong>飞机；机场至市区可选择机场大巴、出租车或网约车，约20-30分钟。</p>
+                </div>
+                <div class="time-location"><strong>下午：</strong>伊犁河大桥 (游览约1-1.5小时)</div>
+                <div class="description">
+                    <p>安顿好后，前往伊犁河大桥，欣赏伊犁河的壮丽景色，尤其是日落时分，光影绝佳。</p>
+                    <p><strong>特色：</strong>伊犁的象征之一，观赏伊犁河及两岸风光的绝佳地点，傍晚可拍摄日落。
+                    <p><strong>拍照建议：</strong>日落时分，以大桥和河流为背景；可尝试长曝光拍摄水流。</p>
+                    <p><strong>门票：</strong>免费</p>
+                    <p><strong>开放时间：</strong>全天</p>
+                </div>
+                <div class="time-location"><strong>傍晚：</strong>喀赞其民俗旅游区 (游览约2-3小时)</div>
+                <div class="description">
+                    <p>感受浓郁的维吾尔族风情，这里有色彩鲜艳的房屋、传统手工艺品和特色小吃。可以乘坐“马的”（哈迪克）游览。</p>
+                    <p><strong>特色：</strong>体验维吾尔族文化，品尝当地小吃，欣赏民族歌舞（可能需额外付费或特定时间）。</p>
+                    <p><strong>拍照建议：</strong>彩色房子、民族服饰人物、手工艺品店铺。</p>
+                    <p><strong>门票：</strong>街区免费，部分体验项目收费。</p>
+                    <p><strong>开放时间：</strong>街区全天，商铺和体验项目通常为10:00-20:00。</p>
+                </div>
+            </div>
+
+            <!-- 第2天 -->
+            <div class="itinerary-item">
+                <h4>6月13日 (周四): 赛里木湖的蔚蓝与薰衣草的芬芳</h4>
+                <div class="time-location"><strong>全天：</strong>赛里木湖 (游览约5-7小时，含往返交通)</div>
+                <div class="description">
+                    <p>早餐后，包车或参加一日游前往“大西洋的最后一滴眼泪”——赛里木湖。6月的赛里木湖畔，野花盛开，湖水湛蓝，雪山倒映，景色绝美。</p>
+                    <p><strong>交通：</strong>从伊宁市包车或拼车前往，单程约2-2.5小时。景区内有环湖公路，建议包车或乘坐区间车游览。</p>
+                    <p><strong>特色：</strong>高山湖泊，湖水清澈湛蓝，雪山环绕，夏季野花遍地。</p>
+                    <p><strong>拍照建议：</strong>湖边、花海、雪山背景，可拍摄广角风光和人像。</p>
+                    <p><strong>门票：</strong>旺季门票约70元/人，区间车约75元/人（请以景区实际价格为准）。</p>
+                    <p><strong>开放时间：</strong>通常为08:00-20:00。</p>
+                </div>
+                 <div class="time-location"><strong>下午/傍晚：</strong>解忧公主薰衣草园 (或附近其他薰衣草田，游览约1.5-2小时)</div>
+                <div class="description">
+                    <p>从赛里木湖返回伊宁途中，可顺路参观解忧公主薰衣草园或霍城县其他薰衣草田。6月正是薰衣草盛开的季节，紫色的花海非常浪漫。（请注意花期，6月中旬通常是观赏佳期）。</p>
+                    <p><strong>交通：</strong>位于赛里木湖返回伊宁的途中，具体位置需导航。</p>
+                    <p><strong>特色：</strong>大片薰衣草花田，浪漫紫色海洋，可购买薰衣草制品。</p>
+                    <p><strong>拍照建议：</strong>花海中的人像，特写薰衣草。</p>
+                    <p><strong>门票：</strong>约35-50元/人（不同园区价格不一）。</p>
+                    <p><strong>开放时间：</strong>通常为09:00-19:00。</p>
+                </div>
+            </div>
+
+            <!-- 第3天 -->
+            <div class="itinerary-item">
+                <h4>6月14日 (周五): 那拉提草原的壮阔与哈萨克风情</h4>
+                <div class="time-location"><strong>全天：</strong>那拉提草原 (游览约6-8小时，含往返交通)</div>
+                <div class="description">
+                    <p>早餐后，乘车前往世界四大高山河谷草原之一的那拉提草原。这里是哈萨克族的摇篮，雪山、森林、草原、河谷交相辉映。</p>
+                    <p><strong>交通：</strong>从伊宁市包车或乘坐班车前往那拉提镇，单程约3-4小时。景区较大，需乘坐区间车游览不同线路（如空中草原、河谷草原）。</p>
+                    <p><strong>特色：</strong>高山草甸、雪山、森林、哈萨克族民俗风情。</p>
+                    <p><strong>拍照建议：</strong>草原上的牛羊马群、远处的雪山、哈萨克毡房、民族服饰。</p>
+                    <p><strong>门票：</strong>旺季门票约95元/人，不同线路区间车价格不一（如空中草原区间车约60元，河谷草原区间车约40元，请以景区实际价格为准）。</p>
+                    <p><strong>开放时间：</strong>通常为08:30-20:00。</p>
+                    <p><strong>当地特色活动：</strong>可以体验骑马、参观哈萨克毡房、品尝奶茶和马奶酒（自费）。</p>
+                </div>
+            </div>
+
+            <!-- 第4天 -->
+            <div class="itinerary-item">
+                <h4>6月15日 (周六): 伊宁市区闲逛与返程</h4>
+                <div class="time-location"><strong>上午：</strong>伊宁市自由活动或查漏补缺</div>
+                <div class="description">
+                    <p>可以在市区逛逛，购买一些当地特产，如薰衣草制品、干果、民族手工艺品等。或者根据个人兴趣，参观如伊犁州博物馆（了解当地历史文化，通常免费但需预约）等。</p>
+                    <p><strong>伊犁州博物馆：</strong>了解伊犁历史文化的好去处。门票通常免费，留意开放时间。</p>
+                </div>
+                <div class="time-location"><strong>中午/下午：</strong>伊宁机场 (YIN) → 深圳宝安国际机场 (SZX)</div>
+                <div class="description">
+                    <p>根据航班时间，提前前往伊宁机场，办理登机手续，结束愉快的伊犁之旅，返回深圳。</p>
+                    <p><strong>交通：</strong>市区至机场可选择出租车或网约车。</p>
+                </div>
             </div>
         </div>
 
-        <div class="price-summary">
-            <h3><span class="icon">📊</span>全程预估费用小结 (不含往返大交通)</h3>
-            <p>此部分为当地游玩期间的门票、住宿、团队餐费等基础费用估算，供参考：</p>
-            <ul>
-                <li>Day 1 预估：约 255 - 330元/人</li>
-                <li>Day 2 预估：约 430 - 505元/人</li>
-                <li>Day 3 预估：约 440 - 515元/人</li>
-                <li>Day 4 预估：约 50元/人 (不含购物)</li>
-                <li><strong>当地基础总费用预估：约 1175 - 1400元/人</strong></li>
-            </ul>
-            <p><strong><span class="icon">⚠️</span>重要：</strong></p>
-            <ul>
-                <li><strong>以上费用不含深圳往返伊宁的机票费用。</strong>6月份机票价格波动较大，经济舱往返通常在 <strong>2500 - 4500元/人</strong> 或更高，请以实际出票为准。</li>
-                <li>不含个人消费、自费项目、单房差、旅游意外险等。</li>
-                <li>此为参考估价，旅行社的团队报价会综合考虑机票、住宿标准、餐饮标准、导服、车辆、利润等，并可能因团队人数调整。</li>
-            </ul>
+        <!-- 3. 餐饮推荐 -->
+        <div class="card">
+            <h3 class="card-title"><span class="icon">🍜</span>餐饮推荐</h3>
+            <div class="dining-item">
+                <h4>伊犁特色美食</h4>
+                <div class="description">
+                    <ul class="list">
+                        <li><strong>大盘鸡：</strong>鸡肉鲜嫩，土豆软糯，汤汁浓郁，配上皮带面，回味无穷。</li>
+                        <li><strong>手抓饭：</strong>羊油、胡萝卜、洋葱、羊肉和大米焖制而成，香气扑鼻。</li>
+                        <li><strong>馕：</strong>品种多样，有肉馕、油馕、芝麻馕等，香脆可口，是当地主食之一。</li>
+                        <li><strong>烤肉串：</strong>新鲜的羊肉用红柳枝串起来烤制，肉质鲜美，孜然味浓。</li>
+                        <li><strong>拉条子（拌面）：</strong>面条劲道，配菜丰富，是当地人常吃的快餐。</li>
+                        <li><strong>奶茶：</strong>咸味的奶茶，是哈萨克、维吾尔等民族的传统饮品。</li>
+                        <li><strong>格瓦斯/卡瓦斯：</strong>一种用蜂蜜、啤酒花、面包发酵的低酒精饮品，酸甜可口。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dining-item">
+                <h4>推荐餐厅（伊宁市区）</h4>
+                <div class="description">
+                    <p><strong>早餐：</strong>酒店含早或品尝当地特色早点，如包子、奶茶、馕等。</p>
+                    <p><strong>午餐/晚餐：</strong></p>
+                    <ul class="list">
+                        <li><strong>帖木儿美食城 (Temur Restaurant)：</strong>品尝各类新疆美食，选择多样。位置：伊宁市解放西路。价格区间：人均50-100元。</li>
+                        <li><strong>阿里木肠道抓饭：</strong>地道的手抓饭。位置：伊宁市斯大林街附近（具体可搜索）。价格区间：人均30-60元。</li>
+                        <li><strong>汗腾格里大饭店（餐厅）：</strong>环境较好，菜品精致，可以品尝到较为正宗的新疆菜。位置：伊宁市斯大林街。价格区间：人均80-150元。</li>
+                        <li><strong>各类路边烤肉摊/小店：</strong>体验地道风味，价格实惠。</li>
+                    </ul>
+                    <p><i>（提示：具体餐厅位置和营业情况建议出行前通过地图App或点评网站核实。）</i></p>
+                </div>
+            </div>
+            <div class="dining-item">
+                <h4>特色小吃和水果</h4>
+                <div class="description">
+                    <ul class="list">
+                        <li><strong>酸奶疙瘩：</strong>当地特色零食，味道酸咸。</li>
+                        <li><strong>冰淇淋：</strong>伊犁的冰淇淋奶味浓郁，值得一试。</li>
+                        <li><strong>时令水果：</strong>6月份可能有早熟的杏子、桑葚等，伊犁的瓜果非常有名，甜度高。</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
-        <div class="footer">
-            <p><strong>温馨提示：</strong></p>
-            <p>新疆地域辽阔，景点间车程较长，请做好心理准备。昼夜温差大，请注意适时增减衣物。尊重当地民族习惯。备好常用药品。祝您旅途愉快！</p>
-            <p>本攻略仅供参考，具体行程及费用以旅行社最终确认为准。</p>
+        <!-- 4. 住宿安排 -->
+        <div class="card">
+            <h3 class="card-title"><span class="icon">🏨</span>住宿安排</h3>
+            <div class="accommodation-item">
+                <h4>伊宁市区推荐</h4>
+                <div class="description">
+                    <p>伊宁市作为伊犁哈萨克自治州的首府，住宿选择较多，交通便利，方便前往各景点。</p>
+                    <ul class="list">
+                        <li><strong>经济型：</strong>如锦江之星、汉庭、7天等连锁酒店。设施标准，干净卫生。价格区间：150-300元/晚。</li>
+                        <li><strong>舒适型：</strong>如伊宁美景大酒店、伊犁河宾馆、天缘国际酒店等。设施较好，服务更完善。价格区间：300-600元/晚。</li>
+                        <li><strong>豪华型/特色：</strong>如伊宁瑞阳皇冠酒店、部分精品民宿（喀赞其内或周边）。提供更高端的设施和服务或独特的文化体验。价格区间：600元以上/晚。</li>
+                    </ul>
+                </div>
+            </div>
+             <div class="accommodation-item">
+                <h4>那拉提/赛里木湖周边（如需）</h4>
+                <div class="description">
+                    <p>如果希望在景区附近住宿以体验清晨或黄昏的美景，那拉提镇和赛里木湖周边也有住宿选择，但条件可能相对市区简单，价格也可能因旅游季节浮动较大。</p>
+                    <ul class="list">
+                        <li><strong>那拉提镇：</strong>有较多酒店和客栈，方便游览那拉提草原。</li>
+                        <li><strong>赛里木湖：</strong>有少量蒙古包、木屋或酒店，体验独特但需提前预订，注意保暖。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="accommodation-item">
+                <h4>预订渠道</h4>
+                <div class="description">
+                    <p>建议通过携程、去哪儿、飞猪、Booking.com等主流在线旅游平台预订，可以比较价格和评价。</p>
+                </div>
+            </div>
         </div>
+
+        <!-- 5. 详细费用总结 -->
+        <div class="card">
+            <h3 class="card-title"><span class="icon">💰</span>详细费用总结 (预估)</h3>
+            <div class="cost-item">
+                <h4>交通费用</h4>
+                <div class="description">
+                    <ul class="list">
+                        <li><strong>深圳-伊犁往返机票：</strong>约2500 - 5000元/人 (6月为旅游旺季，需提前预订，价格波动大，可能需要中转)。</li>
+                        <li><strong>当地交通 (4天)：</strong>
+                            <ul>
+                                <li>机场往返市区：约50-100元。</li>
+                                <li>市区内交通 (出租车/公交)：约100-150元。</li>
+                                <li>包车/拼车 (赛里木湖、那拉提，按2天计算，若全程包车费用更高)：约800-1500元 (具体看车型和天数，拼车会便宜些)。</li>
+                                <li><strong>小计：</strong>约950 - 1750元/人 (按2人分摊包车费用估算，若单人或多人会有差异)。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cost-item">
+                <h4>住宿费用</h4>
+                <div class="description">
+                    <ul class="list">
+                        <li>按舒适型酒店估算：约400元/晚 × 3晚 = 1200元。</li>
+                        <li>(若选择经济型或豪华型，费用会有较大差异)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cost-item">
+                <h4>餐饮费用</h4>
+                <div class="description">
+                    <ul class="list">
+                        <li>约150 - 250元/人/天 × 4天 = 600 - 1000元/人。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cost-item">
+                <h4>景点门票费用</h4>
+                <div class="description">
+                    <ul class="list">
+                        <li>赛里木湖 (门票+区间车)：约145元/人。</li>
+                        <li>解忧公主薰衣草园：约40元/人。</li>
+                        <li>那拉提草原 (门票+主要区间车)：约155元/人 (空中草原线)。</li>
+                        <li><strong>小计：</strong>约340元/人。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cost-item">
+                <h4>其他费用</h4>
+                <div class="description">
+                    <ul class="list">
+                        <li>购物、纪念品、体验活动（如骑马）等：预留500 - 1000元/人。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cost-summary">
+                <p><strong>总费用预算 (预估/人)：</strong></p>
+                <p>机票 (取中间值3750) + 当地交通 (取中间值1350/2=675，按两人行) + 住宿 (1200/2=600，按两人行) + 餐饮 (取中间值800) + 门票 (340) + 其他 (取中间值750) = <strong>约 6915 元/人</strong></p>
+                <p><em>请注意：此为大致估算，实际费用会因机票价格、住宿标准、餐饮选择、购物消费以及是否选择包车等因素有较大差异。建议根据个人情况调整。如果是单人出行，当地交通和住宿分摊成本会更高。</em></p>
+            </div>
+        </div>
+
+        <!-- 6. 额外提示 -->
+        <div class="card">
+            <h3 class="card-title"><span class="icon">💡</span>额外提示</h3>
+            <div class="tip-item">
+                <h4>文化禁忌和注意事项</h4>
+                <div class="description">
+                    <ul class="list">
+                        <li>尊重当地民族信仰和风俗习惯，特别是在清真寺、麻扎（墓地）等宗教场所。</li>
+                        <li>进入维吾尔族和哈萨克族家庭时，通常需要脱鞋。</li>
+                        <li>不要随意评论他人的宗教信仰和生活习惯。</li>
+                        <li>拍照前最好征得对方同意，尤其对于人物。</li>
+                        <li>当地饮食多牛羊肉，如不习惯或有禁忌请提前告知。</li>
+                        <li>伊犁地区日照强烈，紫外线强，务必做好防晒。昼夜温差大，注意衣物增减。</li>
+                        <li>新疆与内地有约2小时时差，但统一使用北京时间，作息安排上可适当调整。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tip-item">
+                <h4>必备物品清单</h4>
+                <div class="description">
+                    <ul class="list">
+                        <li><strong>证件：</strong>身份证（必带！）、学生证/军官证等优惠证件。</li>
+                        <li><strong>衣物：</strong>短袖、长袖、薄外套、厚外套（如抓绒或薄羽绒）、舒适的裤子、换洗衣物、舒适的徒步鞋/运动鞋。</li>
+                        <li><strong>防晒用品：</strong>高倍防晒霜、太阳帽、太阳镜、唇膏。</li>
+                        <li><strong>保湿用品：</strong>新疆气候干燥，保湿霜、面膜等。</li>
+                        <li><strong>药品：</strong>常用感冒药、肠胃药、晕车药、创可贴、个人特殊药品。</li>
+                        <li><strong>电子设备：</strong>手机、相机、充电器、充电宝。</li>
+                        <li><strong>其他：</strong>少量现金（部分地区可能信号不好）、水杯、雨具（6月可能有阵雨）。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tip-item">
+                <h4>紧急联系方式</h4>
+                <div class="description">
+                    <ul class="list">
+                        <li>报警电话：110</li>
+                        <li>急救电话：120</li>
+                        <li>火警电话：119</li>
+                        <li>伊宁市旅游投诉电话：（建议查询当地最新号码）</li>
+                        <li>常用航空公司客服电话。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tip-item">
+                <h4>当地特色纪念品推荐</h4>
+                <div class="description">
+                    <ul class="list">
+                        <li><strong>薰衣草制品：</strong>精油、香包、干花、薰衣草小熊等。</li>
+                        <li><strong>民族手工艺品：</strong>维吾尔族花帽、刺绣、乐器模型、英吉沙小刀（注意安检规定）。</li>
+                        <li><strong>特色食品：</strong>各类干果（杏干、葡萄干、巴旦木等）、奶酪、马奶酒、伊犁蜂蜜。</li>
+                        <li><strong>地毯挂毯：</strong>具有民族特色的手工地毯。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+            <button class="button" onclick="window.print()">打印攻略</button>
+            <p style="font-size:12px; color: #8e8e93; margin-top: 10px;">祝您旅途愉快！</p>
+        </div>
+
     </div>
 </body>
 </html>
