@@ -1,148 +1,468 @@
-以下为“深圳—伊犁”（6月12日至15日，4天）iOS 风格旅游攻略概要：
-预计气温在17.9–31.9℃之间，日照充足、局部午后易有阵雨；
-重点游览赛里木湖、那拉提草原、葡萄沟等经典景点；
-往返航班约￥1000–1500/人，市内交通以出租和包车为主；
-用餐推荐大盘鸡、手抓饭、馕烤肉等地道美食；
-住宿从￥200/晚经济型到￥600/晚高档型皆可选择；
-全程预算约￥3500–4500/人；
-并附带必备物品、文化禁忌及紧急联系方式等实用贴士。
-以下为完整iOS 风格HTML代码，可直接在iPhone/iPad上打开查看。
-
-```html
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>深圳—伊犁 4日游攻略</title>
-  <style>
-    /* iOS 风格基础 */
-    body { font-family: -apple-system, "Helvetica Neue", sans-serif; background: #f9f9f9; margin: 0; padding: 16px; }
-    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 16px; padding: 16px; }
-    h2 { font-size: 20px; margin-top: 0; }
-    h3 { font-size: 18px; margin-bottom: 8px; }
-    .icon { width: 24px; height: 24px; vertical-align: middle; margin-right: 8px; }
-    .btn { display: inline-block; padding: 8px 12px; border-radius: 8px; background: #007aff; color: #fff; text-decoration: none; font-size: 16px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
-    th, td { text-align: left; padding: 8px; }
-    th { background: #f1f1f1; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深圳到伊犁旅游攻略 - KaFungyu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* iOS风格特定样式 */
+        .ios-card {
+            background-color: white;
+            border-radius: 13px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .ios-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .ios-header {
+            font-weight: 600;
+            font-size: 17px;
+            color: #1c1c1e;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .ios-header i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .ios-text {
+            color: #3a3a3c;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        
+        .ios-tag {
+            display: inline-block;
+            background-color: #f2f2f7;
+            color: #8e8e93;
+            padding: 5px 12px;
+            border-radius: 16px;
+            font-size: 13px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .ios-tag.highlight {
+            background-color: rgba(74, 107, 255, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .ios-divider {
+            height: 1px;
+            background-color: #e5e5ea;
+            margin: 15px 0;
+        }
+        
+        .ios-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .ios-button:hover {
+            background-color: #3a5ae8;
+        }
+        
+        .weather-forecast {
+            display: flex;
+            overflow-x: auto;
+            padding: 10px 0;
+            margin: 0 -10px;
+        }
+        
+        .weather-day {
+            min-width: 80px;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .weather-icon {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #ff9500;
+        }
+        
+        .weather-temp {
+            font-weight: 600;
+        }
+        
+        .itinerary-day {
+            margin-bottom: 20px;
+        }
+        
+        .itinerary-day-header {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .expense-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .expense-table th, .expense-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e5e5ea;
+        }
+        
+        .expense-table th {
+            font-weight: 600;
+            color: #1c1c1e;
+            background-color: #f2f2f7;
+        }
+        
+        .expense-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .travel-hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1591634616938-1dfa7ee2e617');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .travel-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .travel-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 180px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1 class="logo">KaFungyu</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="about.html">关于我</a></li>
+                    <li><a href="portfolio.html">作品集</a></li>
+                    <li><a href="contact.html">联系方式</a></li>
+                    <li><a href="travel-guide.html" class="active">旅游攻略</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <!-- 天气预报 -->
-  <div class="card">
-    <h2><img src="sunny.png" alt="天气" class="icon">6月12-15日天气预报</h2>
-    <table>
-      <tr><th>日期</th><th>最高/最低</th><th>状况</th><th>风力</th><th>穿着建议</th></tr>
-      <tr><td>6月12日</td><td>31.9℃/17.9℃</td><td>晴</td><td>3-4级</td><td>短袖+防晒</td></tr>
-      <tr><td>6月13日</td><td>30℃/18℃</td><td>多云</td><td>3级</td><td>长袖薄外套</td></tr>
-      <tr><td>6月14日</td><td>29℃/17℃</td><td>阵雨</td><td>3-4级</td><td>带伞+轻便服饰</td></tr>
-      <tr><td>6月15日</td><td>28℃/17℃</td><td>多云</td><td>2-3级</td><td>短袖+薄外套</td></tr>
-    </table>
-    <p>数据来源：Climate-Data.org :contentReference[oaicite:0]{index=0}</p>
-  </div>
+    <section class="travel-hero">
+        <div class="container">
+            <h1>深圳到伊犁旅游攻略</h1>
+            <p>探索中国西北的壮丽风景，体验独特的文化之旅</p>
+        </div>
+    </section>
 
-  <!-- 详细行程 -->
-  <div class="card">
-    <h2><img src="itinerary.png" alt="行程" class="icon">4日行程规划</h2>
+    <section>
+        <div class="container">
+            <div class="ios-card">
+                <div class="ios-header"><i class="fas fa-info-circle"></i>旅行概览</div>
+                <p class="ios-text">从繁华的深圳到壮丽的伊犁，这是一段横跨中国东西的精彩旅程。伊犁位于新疆维吾尔自治区西北部，以其壮丽的自然风光、丰富的文化遗产和独特的民族风情而闻名。本攻略将为您提供从深圳到伊犁的详细旅行指南，包括交通、住宿、美食和景点推荐。</p>
+                <div class="ios-divider"></div>
+                <div>
+                    <span class="ios-tag highlight">7天行程</span>
+                    <span class="ios-tag">自然风光</span>
+                    <span class="ios-tag">文化体验</span>
+                    <span class="ios-tag">美食探索</span>
+                </div>
+            </div>
 
-    <!-- 第一天 -->
-    <div>
-      <h3>6月12日：抵达伊宁 → 赛里木湖</h3>
-      <ul>
-        <li>航班：深圳—伊宁，往返约￥1000–1500/人 :contentReference[oaicite:1]{index=1}</li>
-        <li>交通：伊宁机场→市区出租约￥50/车，约10分钟 :contentReference[oaicite:2]{index=2}</li>
-        <li>赛里木湖：距市区约135公里，自驾/包车约2h :contentReference[oaicite:3]{index=3}</li>
-        <li>游览时间：2–3h；拍照建议：湖畔日落&草原花海</li>
-        <li>门票：￥65；开放：全天</li>
-      </ul>
-    </div>
+            <div class="ios-card">
+                <div class="ios-header"><i class="fas fa-plane"></i>交通信息</div>
+                <p class="ios-text"><strong>航班:</strong> 深圳宝安国际机场 → 乌鲁木齐地窝堡国际机场（约5小时），然后转乘国内航班至伊宁机场（约1.5小时）</p>
+                <p class="ios-text"><strong>火车:</strong> 可选择深圳 → 乌鲁木齐（约41小时），然后乌鲁木齐 → 伊宁（约10小时）</p>
+                <p class="ios-text"><strong>当地交通:</strong> 伊犁地区可租车自驾、包车或参加当地旅行团</p>
+            </div>
 
-    <!-- 第二天 -->
-    <div>
-      <h3>6月13日：那拉提草原 — 胶勒石城</h3>
-      <ul>
-        <li>交通：市区包车至那拉提约3h；门票￥140 :contentReference[oaicite:4]{index=4}</li>
-        <li>游览：骑马、草原风光，建议3h</li>
-        <li>下午：前往胶勒石城（约1h），探索千年石阵</li>
-        <li>门票：￥50；开放：9:00–18:00</li>
-      </ul>
-    </div>
+            <div class="ios-card">
+                <div class="ios-header"><i class="fas fa-cloud-sun"></i>天气预报</div>
+                <p class="ios-text">伊犁四季分明，夏季凉爽，冬季寒冷。最佳旅游时间为5-10月。</p>
+                <div class="weather-forecast">
+                    <div class="weather-day">
+                        <div>周一</div>
+                        <div class="weather-icon"><i class="fas fa-sun"></i></div>
+                        <div class="weather-temp">26°C</div>
+                    </div>
+                    <div class="weather-day">
+                        <div>周二</div>
+                        <div class="weather-icon"><i class="fas fa-cloud-sun"></i></div>
+                        <div class="weather-temp">24°C</div>
+                    </div>
+                    <div class="weather-day">
+                        <div>周三</div>
+                        <div class="weather-icon"><i class="fas fa-cloud"></i></div>
+                        <div class="weather-temp">22°C</div>
+                    </div>
+                    <div class="weather-day">
+                        <div>周四</div>
+                        <div class="weather-icon"><i class="fas fa-cloud-sun"></i></div>
+                        <div class="weather-temp">25°C</div>
+                    </div>
+                    <div class="weather-day">
+                        <div>周五</div>
+                        <div class="weather-icon"><i class="fas fa-sun"></i></div>
+                        <div class="weather-temp">27°C</div>
+                    </div>
+                    <div class="weather-day">
+                        <div>周六</div>
+                        <div class="weather-icon"><i class="fas fa-sun"></i></div>
+                        <div class="weather-temp">28°C</div>
+                    </div>
+                    <div class="weather-day">
+                        <div>周日</div>
+                        <div class="weather-icon"><i class="fas fa-cloud-sun"></i></div>
+                        <div class="weather-temp">26°C</div>
+                    </div>
+                </div>
+            </div>
 
-    <!-- 第三天 -->
-    <div>
-      <h3>6月14日：葡萄沟 — 伊宁市区</h3>
-      <ul>
-        <li>葡萄沟：距市区约12km，出租车20分钟</li>
-        <li>游览：采摘体验+拍照，建议2h；免费开放</li>
-        <li>下午：返回市区，逛和合步行街 :contentReference[oaicite:5]{index=5}</li>
-      </ul>
-    </div>
+            <div class="ios-card">
+                <div class="ios-header"><i class="fas fa-map-marked-alt"></i>行程安排</div>
+                <div class="itinerary-day">
+                    <div class="itinerary-day-header">第1天：深圳 → 乌鲁木齐</div>
+                    <p class="ios-text">从深圳宝安国际机场出发，飞往乌鲁木齐。抵达后入住酒店，适应高原环境，可以在附近散步，品尝当地美食。</p>
+                </div>
+                <div class="ios-divider"></div>
+                <div class="itinerary-day">
+                    <div class="itinerary-day-header">第2天：乌鲁木齐 → 伊宁</div>
+                    <p class="ios-text">上午参观新疆维吾尔自治区博物馆，了解当地历史文化。下午乘坐飞机或火车前往伊宁市，抵达后入住酒店。</p>
+                </div>
+                <div class="ios-divider"></div>
+                <div class="itinerary-day">
+                    <div class="itinerary-day-header">第3天：伊宁市区游</div>
+                    <p class="ios-text">参观伊宁市区，包括喀赞其民俗风情园、伊犁将军府、伊宁老城区等。品尝当地特色美食，如拉条子、大盘鸡等。</p>
+                </div>
+                <div class="ios-divider"></div>
+                <div class="itinerary-day">
+                    <div class="itinerary-day-header">第4天：那拉提草原</div>
+                    <p class="ios-text">前往那拉提草原，欣赏壮丽的草原风光，体验哈萨克族传统文化，可以骑马、住蒙古包，晚上参加篝火晚会。</p>
+                </div>
+                <div class="ios-divider"></div>
+                <div class="itinerary-day">
+                    <div class="itinerary-day-header">第5天：薰衣草基地和果子沟</div>
+                    <p class="ios-text">参观霍城薰衣草基地（6-8月为最佳季节），欣赏紫色花海。随后前往果子沟，欣赏壮丽的峡谷风光。</p>
+                </div>
+                <div class="ios-divider"></div>
+                <div class="itinerary-day">
+                    <div class="itinerary-day-header">第6天：喀拉峻草原和特克斯八卦城</div>
+                    <p class="ios-text">前往喀拉峻草原，欣赏被誉为"空中草原"的美景。随后参观特克斯八卦城，了解这座独特的城市规划。</p>
+                </div>
+                <div class="ios-divider"></div>
+                <div class="itinerary-day">
+                    <div class="itinerary-day-header">第7天：返程</div>
+                    <p class="ios-text">从伊宁返回乌鲁木齐，然后乘坐飞机返回深圳，结束愉快的旅程。</p>
+                </div>
+            </div>
 
-    <!-- 第四天 -->
-    <div>
-      <h3>6月15日：市区文化体验 → 返回深圳</h3>
-      <ul>
-        <li>上午：拜访伊犁博物馆，了解哈萨克文化</li>
-        <li>中午：市区小吃街（推荐手抓饭、馕）</li>
-        <li>下午：机场送机，乘晚班机返回深圳</li>
-      </ul>
-    </div>
-  </div>
+            <div class="ios-card">
+                <div class="ios-header"><i class="fas fa-utensils"></i>美食推荐</div>
+                <p class="ios-text"><strong>1. 拉条子</strong> - 伊犁地区特色面食，口感筋道，汤汁鲜美。</p>
+                <p class="ios-text"><strong>2. 大盘鸡</strong> - 新疆著名菜肴，鸡肉与土豆一起炖煮，香辣可口。</p>
+                <p class="ios-text"><strong>3. 烤全羊</strong> - 传统的哈萨克族美食，肉质鲜嫩，风味独特。</p>
+                <p class="ios-text"><strong>4. 馕</strong> - 维吾尔族传统面食，外酥里软，可搭配各种菜肴食用。</p>
+                <p class="ios-text"><strong>5. 酸奶</strong> - 新疆酸奶浓郁醇厚，口感独特，是当地特色小吃。</p>
+                <div class="ios-divider"></div>
+                <p class="ios-text"><strong>推荐餐厅:</strong></p>
+                <p class="ios-text">- 伊宁市喀赞其餐厅（地址：伊宁市解放西路）</p>
+                <p class="ios-text">- 阿勒泰餐厅（地址：伊宁市斯大林街）</p>
+                <p class="ios-text">- 那拉提草原牧家乐（地址：那拉提草原景区内）</p>
+            </div>
 
-  <!-- 餐饮推荐 -->
-  <div class="card">
-    <h2><img src="food.png" alt="餐饮" class="icon">餐饮推荐</h2>
-    <ul>
-      <li><strong>大盘鸡</strong>：推荐“王飞新疆菜·大盘鸡·烧烤”，人均￥35 :contentReference[oaicite:6]{index=6}</li>
-      <li><strong>手抓饭</strong>：推荐“俭寨小公鸡新疆菜”，人均￥30 :contentReference[oaicite:7]{index=7}</li>
-      <li><strong>烤肉&馕</strong>：推荐“秘制椒麻鸡烧烤”，人均￥25 :contentReference[oaicite:8]{index=8}</li>
-      <li><strong>特色小吃</strong>：和合街小吃一条街，羊肉串￥3/串</li>
-      <li><strong>水果</strong>：夏季哈密瓜、葡萄，约￥5–10/斤</li>
-    </ul>
-  </div>
+            <div class="ios-card">
+                <div class="ios-header"><i class="fas fa-bed"></i>住宿推荐</div>
+                <p class="ios-text"><strong>伊宁市区:</strong></p>
+                <p class="ios-text">- 伊犁宾馆 ⭐⭐⭐⭐（地址：伊宁市解放西路）</p>
+                <p class="ios-text">- 伊宁洲际酒店 ⭐⭐⭐⭐（地址：伊宁市斯大林街）</p>
+                <p class="ios-text">- 如家快捷酒店 ⭐⭐⭐（地址：伊宁市解放东路）</p>
+                <div class="ios-divider"></div>
+                <p class="ios-text"><strong>那拉提草原:</strong></p>
+                <p class="ios-text">- 那拉提草原度假村 ⭐⭐⭐⭐（地址：那拉提草原景区内）</p>
+                <p class="ios-text">- 哈萨克族牧民家庭旅馆（体验当地民俗文化）</p>
+                <div class="ios-divider"></div>
+                <p class="ios-text"><strong>特克斯:</strong></p>
+                <p class="ios-text">- 特克斯八卦城酒店 ⭐⭐⭐（地址：特克斯县八卦城中心）</p>
+            </div>
 
-  <!-- 住宿安排 -->
-  <div class="card">
-    <h2><img src="hotel.png" alt="住宿" class="icon">住宿推荐</h2>
-    <table>
-      <tr><th>类型</th><th>酒店/民宿</th><th>价格/晚</th><th>位置</th></tr>
-      <tr><td>经济型</td><td>格林豪泰伊宁店</td><td>￥200–300</td><td>市区中心，步行5min到和合街</td></tr>
-      <tr><td>舒适型</td><td>锦江之星·伊宁国际店</td><td>￥350–450</td><td>市区，临近美食街</td></tr>
-      <tr><td>豪华型</td><td>伊犁大酒店</td><td>￥500–600</td><td>市中心，交通便利</td></tr>
-    </table>
-    <p>数据来源：Agoda/Booking.com :contentReference[oaicite:9]{index=9}</p>
-  </div>
+            <div class="ios-card">
+                <div class="ios-header"><i class="fas fa-camera"></i>景点推荐</div>
+                <p class="ios-text"><strong>1. 那拉提草原</strong> - 被誉为"亚洲最美的草原之一"，夏季绿草如茵，繁花似锦。</p>
+                <p class="ios-text"><strong>2. 喀拉峻草原</strong> - 素有"空中草原"之称，海拔较高，风景壮丽。</p>
+                <p class="ios-text"><strong>3. 霍城薰衣草基地</strong> - 中国最大的薰衣草种植基地，6-8月是最佳观赏期。</p>
+                <p class="ios-text"><strong>4. 特克斯八卦城</strong> - 世界上唯一的八卦城，城市规划独特。</p>
+                <p class="ios-text"><strong>5. 果子沟</strong> - 伊犁河谷著名的峡谷，风景秀丽，水果丰盛。</p>
+                <p class="ios-text"><strong>6. 伊犁将军府</strong> - 清代伊犁将军的官邸，了解当地历史文化的重要场所。</p>
+                <div class="photo-gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b" alt="草原风光">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1507036066871-b7e8032b3dea" alt="薰衣草">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99" alt="山谷">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1499363536502-87642509e31b" alt="日落">
+                    </div>
+                </div>
+            </div>
 
-  <!-- 费用总结 -->
-  <div class="card">
-    <h2><img src="budget.png" alt="费用" class="icon">费用预算（人均）</h2>
-    <ul>
-      <li>往返机票：￥1,200</li>
-      <li>市内交通（含包车）：￥600</li>
-      <li>住宿（3晚）：￥1,200</li>
-      <li>餐饮（4天）：￥400</li>
-      <li>门票（含赛里木、那拉提等）：￥255</li>
-      <li>其他（购物/活动）：￥300</li>
-      <li><strong>总计：约￥3,955</strong></li>
-    </ul>
-  </div>
+            <div class="ios-card">
+                <div class="ios-header"><i class="fas fa-money-bill-wave"></i>费用预算</div>
+                <table class="expense-table">
+                    <tr>
+                        <th>项目</th>
+                        <th>预估费用 (人民币)</th>
+                        <th>备注</th>
+                    </tr>
+                    <tr>
+                        <td>往返机票</td>
+                        <td>3,000 - 5,000元</td>
+                        <td>深圳-乌鲁木齐-伊宁，视季节而定</td>
+                    </tr>
+                    <tr>
+                        <td>住宿</td>
+                        <td>1,500 - 3,000元</td>
+                        <td>7晚，视酒店档次而定</td>
+                    </tr>
+                    <tr>
+                        <td>餐饮</td>
+                        <td>1,000 - 1,500元</td>
+                        <td>每人每天约150-200元</td>
+                    </tr>
+                    <tr>
+                        <td>景点门票</td>
+                        <td>500 - 800元</td>
+                        <td>包括主要景点门票</td>
+                    </tr>
+                    <tr>
+                        <td>当地交通</td>
+                        <td>1,000 - 2,000元</td>
+                        <td>包车或租车费用</td>
+                    </tr>
+                    <tr>
+                        <td>购物/其他</td>
+                        <td>1,000元左右</td>
+                        <td>纪念品、特产等</td>
+                    </tr>
+                    <tr>
+                        <td><strong>总计</strong></td>
+                        <td><strong>8,000 - 13,300元</strong></td>
+                        <td>每人7天行程预算</td>
+                    </tr>
+                </table>
+            </div>
 
-  <!-- 额外提示 -->
-  <div class="card">
-    <h2><img src="tips.png" alt="提示" class="icon">额外提示</h2>
-    <ul>
-      <li>尊重少数民族习俗，避免在清真场所拍照；</li>
-      <li>必备：防晒霜、墨镜、雨具、常用药品；</li>
-      <li>紧急电话：报警110、急救120；</li>
-      <li>纪念品：特色手工馕、哈萨克绣花包、葡萄干。</li>
-    </ul>
-  </div>
+            <div class="ios-card">
+                <div class="ios-header"><i class="fas fa-lightbulb"></i>旅行小贴士</div>
+                <p class="ios-text"><strong>1. 证件准备</strong> - 前往新疆旅游需携带身份证，部分景区可能需要登记。</p>
+                <p class="ios-text"><strong>2. 气候适应</strong> - 伊犁地区昼夜温差大，请携带足够的保暖衣物。</p>
+                <p class="ios-text"><strong>3. 防晒措施</strong> - 高原地区紫外线强烈，请做好防晒准备。</p>
+                <p class="ios-text"><strong>4. 高原反应</strong> - 部分地区海拔较高，请注意适应高原环境，避免剧烈运动。</p>
+                <p class="ios-text"><strong>5. 尊重当地文化</strong> - 尊重当地民族习俗和宗教信仰，注意着装得体。</p>
+                <p class="ios-text"><strong>6. 通讯网络</strong> - 部分偏远地区信号可能不稳定，建议提前下载离线地图。</p>
+                <p class="ios-text"><strong>7. 饮食习惯</strong> - 当地以牛羊肉为主，如有特殊饮食需求，请提前准备。</p>
+            </div>
 
-  <a href="#" class="btn">返回顶部</a>
+            <div class="ios-card">
+                <div class="ios-header"><i class="fas fa-share-alt"></i>分享您的旅行</div>
+                <p class="ios-text">喜欢这份旅游攻略？分享给您的朋友，或者在下方留言分享您的旅行经验！</p>
+                <div class="ios-divider"></div>
+                <a href="#" class="ios-button">分享攻略</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>KaFungyu</h2>
+                    <p>创造数字体验</p>
+                </div>
+                <div class="footer-links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">关于我</a></li>
+                        <li><a href="portfolio.html">作品集</a></li>
+                        <li><a href="contact.html">联系方式</a></li>
+                        <li><a href="travel-guide.html">旅游攻略</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>关注我</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 KaFungyu. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
-```
-
-> **说明**：本攻略采用iOS系统的San Francisco/Helvetica Neue字体、圆角卡片、轻微阴影及经典蓝白配色，适合在iPhone/iPad上阅读。
