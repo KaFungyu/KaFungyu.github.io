@@ -3,466 +3,759 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>深圳到伊犁旅游攻略 - KaFungyu</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* iOS风格特定样式 */
-        .ios-card {
-            background-color: white;
-            border-radius: 13px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            padding: 20px;
-            margin-bottom: 25px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+    <title>深圳至伊犁4天旅游攻略</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#007AFF',
+                        secondary: '#5AC8FA',
+                        accent: '#FF9500',
+                        dark: '#1C1C1E',
+                        light: '#F9F9F9',
+                        gray: {
+                            100: '#F2F2F7',
+                            200: '#E5E5EA',
+                            300: '#D1D1D6',
+                            400: '#C7C7CC',
+                            500: '#AEAEB2',
+                            600: '#8E8E93',
+                            700: '#636366',
+                            800: '#3A3A3C',
+                            900: '#1C1C1E',
+                        }
+                    },
+                    fontFamily: {
+                        ios: ['-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'sans-serif'],
+                    },
+                }
+            }
         }
-        
-        .ios-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-        }
-        
-        .ios-header {
-            font-weight: 600;
-            font-size: 17px;
-            color: #1c1c1e;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .ios-header i {
-            margin-right: 10px;
-            color: var(--primary-color);
-        }
-        
-        .ios-text {
-            color: #3a3a3c;
-            font-size: 15px;
-            line-height: 1.5;
-        }
-        
-        .ios-tag {
-            display: inline-block;
-            background-color: #f2f2f7;
-            color: #8e8e93;
-            padding: 5px 12px;
-            border-radius: 16px;
-            font-size: 13px;
-            margin-right: 8px;
-            margin-bottom: 8px;
-        }
-        
-        .ios-tag.highlight {
-            background-color: rgba(74, 107, 255, 0.1);
-            color: var(--primary-color);
-        }
-        
-        .ios-divider {
-            height: 1px;
-            background-color: #e5e5ea;
-            margin: 15px 0;
-        }
-        
-        .ios-button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            padding: 12px 20px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: inline-block;
-            text-align: center;
-            margin-top: 10px;
-        }
-        
-        .ios-button:hover {
-            background-color: #3a5ae8;
-        }
-        
-        .weather-forecast {
-            display: flex;
-            overflow-x: auto;
-            padding: 10px 0;
-            margin: 0 -10px;
-        }
-        
-        .weather-day {
-            min-width: 80px;
-            text-align: center;
-            padding: 10px;
-        }
-        
-        .weather-icon {
-            font-size: 24px;
-            margin: 10px 0;
-            color: #ff9500;
-        }
-        
-        .weather-temp {
-            font-weight: 600;
-        }
-        
-        .itinerary-day {
-            margin-bottom: 20px;
-        }
-        
-        .itinerary-day-header {
-            font-weight: 700;
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-        
-        .expense-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-        
-        .expense-table th, .expense-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #e5e5ea;
-        }
-        
-        .expense-table th {
-            font-weight: 600;
-            color: #1c1c1e;
-            background-color: #f2f2f7;
-        }
-        
-        .expense-table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .travel-hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1591634616938-1dfa7ee2e617');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .travel-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .travel-hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-        
-        .photo-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .gallery-item {
-            border-radius: 10px;
-            overflow: hidden;
-            height: 180px;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.05);
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .ios-card {
+                @apply bg-white rounded-xl shadow-md transition-all duration-300 hover:shadow-lg;
+            }
+            .ios-button {
+                @apply bg-primary text-white rounded-full py-3 px-6 font-medium transition-all duration-300 hover:bg-primary/90 active:scale-95;
+            }
+            .ios-text-input {
+                @apply bg-gray-100 rounded-lg px-4 py-3 text-dark border-0 focus:ring-2 focus:ring-primary/50 transition-all;
+            }
+            .weather-icon {
+                @apply w-10 h-10 mr-3;
+            }
+            .day-section {
+                @apply mb-6 border-l-4 border-primary pl-4;
+            }
+            .cost-item {
+                @apply flex justify-between py-2 border-b border-gray-200;
+            }
+            .schedule-item {
+                @apply mb-4 p-4 bg-gray-50 rounded-lg transition-all hover:bg-gray-100;
+            }
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1 class="logo">KaFungyu</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="about.html">关于我</a></li>
-                    <li><a href="portfolio.html">作品集</a></li>
-                    <li><a href="contact.html">联系方式</a></li>
-                    <li><a href="travel-guide.html" class="active">旅游攻略</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section class="travel-hero">
-        <div class="container">
-            <h1>深圳到伊犁旅游攻略</h1>
-            <p>探索中国西北的壮丽风景，体验独特的文化之旅</p>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="ios-card">
-                <div class="ios-header"><i class="fas fa-info-circle"></i>旅行概览</div>
-                <p class="ios-text">从繁华的深圳到壮丽的伊犁，这是一段横跨中国东西的精彩旅程。伊犁位于新疆维吾尔自治区西北部，以其壮丽的自然风光、丰富的文化遗产和独特的民族风情而闻名。本攻略将为您提供从深圳到伊犁的详细旅行指南，包括交通、住宿、美食和景点推荐。</p>
-                <div class="ios-divider"></div>
-                <div>
-                    <span class="ios-tag highlight">7天行程</span>
-                    <span class="ios-tag">自然风光</span>
-                    <span class="ios-tag">文化体验</span>
-                    <span class="ios-tag">美食探索</span>
+<body class="font-ios bg-gray-100 text-dark min-h-screen">
+    <div class="container mx-auto px-4 py-6 max-w-3xl">
+        <!-- 顶部导航栏 -->
+        <header class="ios-card sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+            <div class="flex justify-between items-center py-4">
+                <h1 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark">深圳至伊犁旅游攻略</h1>
+                <div class="flex space-x-3">
+                    <button class="text-gray-600 hover:text-primary transition-colors">
+                        <i class="fa-regular fa-heart text-xl"></i>
+                    </button>
+                    <button class="text-gray-600 hover:text-primary transition-colors">
+                        <i class="fa-solid fa-share text-xl"></i>
+                    </button>
                 </div>
             </div>
+        </header>
 
-            <div class="ios-card">
-                <div class="ios-header"><i class="fas fa-plane"></i>交通信息</div>
-                <p class="ios-text"><strong>航班:</strong> 深圳宝安国际机场 → 乌鲁木齐地窝堡国际机场（约5小时），然后转乘国内航班至伊宁机场（约1.5小时）</p>
-                <p class="ios-text"><strong>火车:</strong> 可选择深圳 → 乌鲁木齐（约41小时），然后乌鲁木齐 → 伊宁（约10小时）</p>
-                <p class="ios-text"><strong>当地交通:</strong> 伊犁地区可租车自驾、包车或参加当地旅行团</p>
-            </div>
-
-            <div class="ios-card">
-                <div class="ios-header"><i class="fas fa-cloud-sun"></i>天气预报</div>
-                <p class="ios-text">伊犁四季分明，夏季凉爽，冬季寒冷。最佳旅游时间为5-10月。</p>
-                <div class="weather-forecast">
-                    <div class="weather-day">
-                        <div>周一</div>
-                        <div class="weather-icon"><i class="fas fa-sun"></i></div>
-                        <div class="weather-temp">26°C</div>
-                    </div>
-                    <div class="weather-day">
-                        <div>周二</div>
-                        <div class="weather-icon"><i class="fas fa-cloud-sun"></i></div>
-                        <div class="weather-temp">24°C</div>
-                    </div>
-                    <div class="weather-day">
-                        <div>周三</div>
-                        <div class="weather-icon"><i class="fas fa-cloud"></i></div>
-                        <div class="weather-temp">22°C</div>
-                    </div>
-                    <div class="weather-day">
-                        <div>周四</div>
-                        <div class="weather-icon"><i class="fas fa-cloud-sun"></i></div>
-                        <div class="weather-temp">25°C</div>
-                    </div>
-                    <div class="weather-day">
-                        <div>周五</div>
-                        <div class="weather-icon"><i class="fas fa-sun"></i></div>
-                        <div class="weather-temp">27°C</div>
-                    </div>
-                    <div class="weather-day">
-                        <div>周六</div>
-                        <div class="weather-icon"><i class="fas fa-sun"></i></div>
-                        <div class="weather-temp">28°C</div>
-                    </div>
-                    <div class="weather-day">
-                        <div>周日</div>
-                        <div class="weather-icon"><i class="fas fa-cloud-sun"></i></div>
-                        <div class="weather-temp">26°C</div>
+        <!-- 主内容区域 -->
+        <main class="mt-6 space-y-6">
+            <!-- 旅行信息卡片 -->
+            <section class="ios-card">
+                <div class="relative rounded-xl overflow-hidden mb-4">
+                    <img src="https://picsum.photos/seed/yili/800/400" alt="伊犁风景" class="w-full h-48 object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h2 class="text-white text-xl font-bold">深圳 → 伊犁</h2>
+                                <p class="text-white/90">6月12日 - 6月15日 · 4天3晚</p>
+                            </div>
+                            <span class="bg-primary/90 text-white text-sm py-1 px-3 rounded-full">旅行计划</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="ios-card">
-                <div class="ios-header"><i class="fas fa-map-marked-alt"></i>行程安排</div>
-                <div class="itinerary-day">
-                    <div class="itinerary-day-header">第1天：深圳 → 乌鲁木齐</div>
-                    <p class="ios-text">从深圳宝安国际机场出发，飞往乌鲁木齐。抵达后入住酒店，适应高原环境，可以在附近散步，品尝当地美食。</p>
-                </div>
-                <div class="ios-divider"></div>
-                <div class="itinerary-day">
-                    <div class="itinerary-day-header">第2天：乌鲁木齐 → 伊宁</div>
-                    <p class="ios-text">上午参观新疆维吾尔自治区博物馆，了解当地历史文化。下午乘坐飞机或火车前往伊宁市，抵达后入住酒店。</p>
-                </div>
-                <div class="ios-divider"></div>
-                <div class="itinerary-day">
-                    <div class="itinerary-day-header">第3天：伊宁市区游</div>
-                    <p class="ios-text">参观伊宁市区，包括喀赞其民俗风情园、伊犁将军府、伊宁老城区等。品尝当地特色美食，如拉条子、大盘鸡等。</p>
-                </div>
-                <div class="ios-divider"></div>
-                <div class="itinerary-day">
-                    <div class="itinerary-day-header">第4天：那拉提草原</div>
-                    <p class="ios-text">前往那拉提草原，欣赏壮丽的草原风光，体验哈萨克族传统文化，可以骑马、住蒙古包，晚上参加篝火晚会。</p>
-                </div>
-                <div class="ios-divider"></div>
-                <div class="itinerary-day">
-                    <div class="itinerary-day-header">第5天：薰衣草基地和果子沟</div>
-                    <p class="ios-text">参观霍城薰衣草基地（6-8月为最佳季节），欣赏紫色花海。随后前往果子沟，欣赏壮丽的峡谷风光。</p>
-                </div>
-                <div class="ios-divider"></div>
-                <div class="itinerary-day">
-                    <div class="itinerary-day-header">第6天：喀拉峻草原和特克斯八卦城</div>
-                    <p class="ios-text">前往喀拉峻草原，欣赏被誉为"空中草原"的美景。随后参观特克斯八卦城，了解这座独特的城市规划。</p>
-                </div>
-                <div class="ios-divider"></div>
-                <div class="itinerary-day">
-                    <div class="itinerary-day-header">第7天：返程</div>
-                    <p class="ios-text">从伊宁返回乌鲁木齐，然后乘坐飞机返回深圳，结束愉快的旅程。</p>
-                </div>
-            </div>
-
-            <div class="ios-card">
-                <div class="ios-header"><i class="fas fa-utensils"></i>美食推荐</div>
-                <p class="ios-text"><strong>1. 拉条子</strong> - 伊犁地区特色面食，口感筋道，汤汁鲜美。</p>
-                <p class="ios-text"><strong>2. 大盘鸡</strong> - 新疆著名菜肴，鸡肉与土豆一起炖煮，香辣可口。</p>
-                <p class="ios-text"><strong>3. 烤全羊</strong> - 传统的哈萨克族美食，肉质鲜嫩，风味独特。</p>
-                <p class="ios-text"><strong>4. 馕</strong> - 维吾尔族传统面食，外酥里软，可搭配各种菜肴食用。</p>
-                <p class="ios-text"><strong>5. 酸奶</strong> - 新疆酸奶浓郁醇厚，口感独特，是当地特色小吃。</p>
-                <div class="ios-divider"></div>
-                <p class="ios-text"><strong>推荐餐厅:</strong></p>
-                <p class="ios-text">- 伊宁市喀赞其餐厅（地址：伊宁市解放西路）</p>
-                <p class="ios-text">- 阿勒泰餐厅（地址：伊宁市斯大林街）</p>
-                <p class="ios-text">- 那拉提草原牧家乐（地址：那拉提草原景区内）</p>
-            </div>
-
-            <div class="ios-card">
-                <div class="ios-header"><i class="fas fa-bed"></i>住宿推荐</div>
-                <p class="ios-text"><strong>伊宁市区:</strong></p>
-                <p class="ios-text">- 伊犁宾馆 ⭐⭐⭐⭐（地址：伊宁市解放西路）</p>
-                <p class="ios-text">- 伊宁洲际酒店 ⭐⭐⭐⭐（地址：伊宁市斯大林街）</p>
-                <p class="ios-text">- 如家快捷酒店 ⭐⭐⭐（地址：伊宁市解放东路）</p>
-                <div class="ios-divider"></div>
-                <p class="ios-text"><strong>那拉提草原:</strong></p>
-                <p class="ios-text">- 那拉提草原度假村 ⭐⭐⭐⭐（地址：那拉提草原景区内）</p>
-                <p class="ios-text">- 哈萨克族牧民家庭旅馆（体验当地民俗文化）</p>
-                <div class="ios-divider"></div>
-                <p class="ios-text"><strong>特克斯:</strong></p>
-                <p class="ios-text">- 特克斯八卦城酒店 ⭐⭐⭐（地址：特克斯县八卦城中心）</p>
-            </div>
-
-            <div class="ios-card">
-                <div class="ios-header"><i class="fas fa-camera"></i>景点推荐</div>
-                <p class="ios-text"><strong>1. 那拉提草原</strong> - 被誉为"亚洲最美的草原之一"，夏季绿草如茵，繁花似锦。</p>
-                <p class="ios-text"><strong>2. 喀拉峻草原</strong> - 素有"空中草原"之称，海拔较高，风景壮丽。</p>
-                <p class="ios-text"><strong>3. 霍城薰衣草基地</strong> - 中国最大的薰衣草种植基地，6-8月是最佳观赏期。</p>
-                <p class="ios-text"><strong>4. 特克斯八卦城</strong> - 世界上唯一的八卦城，城市规划独特。</p>
-                <p class="ios-text"><strong>5. 果子沟</strong> - 伊犁河谷著名的峡谷，风景秀丽，水果丰盛。</p>
-                <p class="ios-text"><strong>6. 伊犁将军府</strong> - 清代伊犁将军的官邸，了解当地历史文化的重要场所。</p>
-                <div class="photo-gallery">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b" alt="草原风光">
+                
+                <div class="flex flex-wrap gap-3 justify-between items-center">
+                    <div class="flex items-center text-gray-700">
+                        <i class="fa-regular fa-calendar text-primary mr-2"></i>
+                        <span>4天行程</span>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1507036066871-b7e8032b3dea" alt="薰衣草">
+                    <div class="flex items-center text-gray-700">
+                        <i class="fa-solid fa-map-marker text-primary mr-2"></i>
+                        <span>4个景点</span>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99" alt="山谷">
+                    <div class="flex items-center text-gray-700">
+                        <i class="fa-solid fa-money-bill-wave text-primary mr-2"></i>
+                        <span>人均约¥6875</span>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1499363536502-87642509e31b" alt="日落">
+                    <div class="flex items-center text-gray-700">
+                        <i class="fa-solid fa-suitcase text-primary mr-2"></i>
+                        <span>夏季出行</span>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="ios-card">
-                <div class="ios-header"><i class="fas fa-money-bill-wave"></i>费用预算</div>
-                <table class="expense-table">
-                    <tr>
-                        <th>项目</th>
-                        <th>预估费用 (人民币)</th>
-                        <th>备注</th>
-                    </tr>
-                    <tr>
-                        <td>往返机票</td>
-                        <td>3,000 - 5,000元</td>
-                        <td>深圳-乌鲁木齐-伊宁，视季节而定</td>
-                    </tr>
-                    <tr>
-                        <td>住宿</td>
-                        <td>1,500 - 3,000元</td>
-                        <td>7晚，视酒店档次而定</td>
-                    </tr>
-                    <tr>
-                        <td>餐饮</td>
-                        <td>1,000 - 1,500元</td>
-                        <td>每人每天约150-200元</td>
-                    </tr>
-                    <tr>
-                        <td>景点门票</td>
-                        <td>500 - 800元</td>
-                        <td>包括主要景点门票</td>
-                    </tr>
-                    <tr>
-                        <td>当地交通</td>
-                        <td>1,000 - 2,000元</td>
-                        <td>包车或租车费用</td>
-                    </tr>
-                    <tr>
-                        <td>购物/其他</td>
-                        <td>1,000元左右</td>
-                        <td>纪念品、特产等</td>
-                    </tr>
-                    <tr>
-                        <td><strong>总计</strong></td>
-                        <td><strong>8,000 - 13,300元</strong></td>
-                        <td>每人7天行程预算</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="ios-card">
-                <div class="ios-header"><i class="fas fa-lightbulb"></i>旅行小贴士</div>
-                <p class="ios-text"><strong>1. 证件准备</strong> - 前往新疆旅游需携带身份证，部分景区可能需要登记。</p>
-                <p class="ios-text"><strong>2. 气候适应</strong> - 伊犁地区昼夜温差大，请携带足够的保暖衣物。</p>
-                <p class="ios-text"><strong>3. 防晒措施</strong> - 高原地区紫外线强烈，请做好防晒准备。</p>
-                <p class="ios-text"><strong>4. 高原反应</strong> - 部分地区海拔较高，请注意适应高原环境，避免剧烈运动。</p>
-                <p class="ios-text"><strong>5. 尊重当地文化</strong> - 尊重当地民族习俗和宗教信仰，注意着装得体。</p>
-                <p class="ios-text"><strong>6. 通讯网络</strong> - 部分偏远地区信号可能不稳定，建议提前下载离线地图。</p>
-                <p class="ios-text"><strong>7. 饮食习惯</strong> - 当地以牛羊肉为主，如有特殊饮食需求，请提前准备。</p>
-            </div>
-
-            <div class="ios-card">
-                <div class="ios-header"><i class="fas fa-share-alt"></i>分享您的旅行</div>
-                <p class="ios-text">喜欢这份旅游攻略？分享给您的朋友，或者在下方留言分享您的旅行经验！</p>
-                <div class="ios-divider"></div>
-                <a href="#" class="ios-button">分享攻略</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h2>KaFungyu</h2>
-                    <p>创造数字体验</p>
+            <!-- 天气部分 -->
+            <section class="ios-card">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-dark">📅 每日天气预报</h2>
+                    <button class="text-primary hover:text-primary/80 transition-colors">
+                        <i class="fa-solid fa-refresh"></i> 更新
+                    </button>
                 </div>
-                <div class="footer-links">
-                    <h3>快速链接</h3>
-                    <ul>
-                        <li><a href="index.html">首页</a></li>
-                        <li><a href="about.html">关于我</a></li>
-                        <li><a href="portfolio.html">作品集</a></li>
-                        <li><a href="contact.html">联系方式</a></li>
-                        <li><a href="travel-guide.html">旅游攻略</a></li>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-center p-4 rounded-lg bg-blue-50 border-l-4 border-blue-400">
+                        <img src="https://picsum.photos/seed/sunny/60/60" alt="晴天" class="weather-icon rounded-full">
+                        <div>
+                            <h3 class="font-semibold">6月12日</h3>
+                            <p class="text-sm text-gray-600">15-28°C · 晴 · 微风</p>
+                            <p class="text-xs text-gray-500">建议穿着：长袖T恤+薄外套</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center p-4 rounded-lg bg-blue-50 border-l-4 border-blue-400">
+                        <img src="https://picsum.photos/seed/cloudy/60/60" alt="多云" class="weather-icon rounded-full">
+                        <div>
+                            <h3 class="font-semibold">6月13日</h3>
+                            <p class="text-sm text-gray-600">16-27°C · 多云 · 微风</p>
+                            <p class="text-xs text-gray-500">建议穿着：衬衫+防晒衣</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center p-4 rounded-lg bg-blue-50 border-l-4 border-blue-400">
+                        <img src="https://picsum.photos/seed/rainy/60/60" alt="小雨" class="weather-icon rounded-full">
+                        <div>
+                            <h3 class="font-semibold">6月14日</h3>
+                            <p class="text-sm text-gray-600">14-26°C · 小雨 · 微风</p>
+                            <p class="text-xs text-gray-500">建议穿着：卫衣+防风外套</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center p-4 rounded-lg bg-blue-50 border-l-4 border-blue-400">
+                        <img src="https://picsum.photos/seed/sunny2/60/60" alt="晴天" class="weather-icon rounded-full">
+                        <div>
+                            <h3 class="font-semibold">6月15日</h3>
+                            <p class="text-sm text-gray-600">17-29°C · 晴 · 微风</p>
+                            <p class="text-xs text-gray-500">建议穿着：短袖+薄开衫</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-xs text-gray-500 mt-4 italic">注：天气数据仅供参考，请以实际预报为准</p>
+            </section>
+
+            <!-- 行程安排 -->
+            <section class="ios-card">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-dark">🗺️ 详细行程安排</h2>
+                    <div class="flex space-x-2">
+                        <button class="text-xs bg-gray-100 text-gray-600 py-1 px-3 rounded-full hover:bg-gray-200 transition-colors">
+                            <i class="fa-solid fa-map"></i> 地图模式
+                        </button>
+                        <button class="text-xs bg-primary/10 text-primary py-1 px-3 rounded-full hover:bg-primary/20 transition-colors">
+                            <i class="fa-solid fa-list"></i> 列表模式
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 第一天 -->
+                <div class="day-section">
+                    <h3 class="text-lg font-bold mb-2 flex items-center">
+                        <span class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">1</span>
+                        Day 1 (6月12日)：深圳 → 伊宁 → 赛里木湖
+                    </h3>
+                    
+                    <div class="schedule-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-semibold">✈️ 交通行程</h4>
+                            <span class="text-xs bg-gray-100 text-gray-600 py-0.5 px-2 rounded">全天</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-1">
+                            <i class="fa-solid fa-plane-departure text-primary mr-1"></i> 
+                            深圳宝安机场 → 乌鲁木齐地窝堡机场 (约6小时)
+                        </p>
+                        <p class="text-sm text-gray-600 mb-1">
+                            <i class="fa-solid fa-plane-arrival text-primary mr-1"></i> 
+                            乌鲁木齐地窝堡机场 → 伊宁机场 (约1小时)
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            <i class="fa-solid fa-car text-primary mr-1"></i> 
+                            伊宁机场 → 赛里木湖 (包车，约2小时)
+                        </p>
+                    </div>
+                    
+                    <div class="schedule-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-semibold">🌊 赛里木湖</h4>
+                            <span class="text-xs bg-blue-100 text-blue-600 py-0.5 px-2 rounded">3-4小时</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 mb-2">
+                            <img src="https://picsum.photos/seed/sailimu1/200/150" alt="赛里木湖" class="rounded-lg object-cover h-16">
+                            <img src="https://picsum.photos/seed/sailimu2/200/150" alt="赛里木湖" class="rounded-lg object-cover h-16">
+                            <img src="https://picsum.photos/seed/sailimu3/200/150" alt="赛里木湖" class="rounded-lg object-cover h-16">
+                        </div>
+                        <p class="text-sm text-gray-600 mb-1">
+                            <i class="fa-solid fa-ticket text-primary mr-1"></i> 
+                            门票：75元/人 | 开放时间：全天
+                        </p>
+                        <p class="text-sm text-gray-600 mb-1">
+                            <i class="fa-solid fa-camera text-primary mr-1"></i> 
+                            拍照建议：环湖公路、点将台、天鹅乐水
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            <i class="fa-solid fa-info-circle text-primary mr-1"></i> 
+                            赛里木湖是新疆海拔最高、面积最大的高山湖泊，被称为"大西洋最后一滴眼泪"。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 第二天 -->
+                <div class="day-section">
+                    <h3 class="text-lg font-bold mb-2 flex items-center">
+                        <span class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">2</span>
+                        Day 2 (6月13日)：喀拉峻草原
+                    </h3>
+                    
+                    <div class="schedule-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-semibold">🚗 交通行程</h4>
+                            <span class="text-xs bg-gray-100 text-gray-600 py-0.5 px-2 rounded">上午</span>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            <i class="fa-solid fa-car text-primary mr-1"></i> 
+                            赛里木湖 → 喀拉峻草原 (包车，约2.5小时)
+                        </p>
+                    </div>
+                    
+                    <div class="schedule-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-semibold">🌿 喀拉峻草原</h4>
+                            <span class="text-xs bg-blue-100 text-blue-600 py-0.5 px-2 rounded">4-5小时</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 mb-2">
+                            <img src="https://picsum.photos/seed/kalajun1/200/150" alt="喀拉峻草原" class="rounded-lg object-cover h-16">
+                            <img src="https://picsum.photos/seed/kalajun2/200/150" alt="喀拉峻草原" class="rounded-lg object-cover h-16">
+                            <img src="https://picsum.photos/seed/kalajun3/200/150" alt="喀拉峻草原" class="rounded-lg object-cover h-16">
+                        </div>
+                        <p class="text-sm text-gray-600 mb-1">
+                            <i class="fa-solid fa-ticket text-primary mr-1"></i> 
+                            门票：170元/人（含区间车） | 开放时间：8:00-20:00
+                        </p>
+                        <p class="text-sm text-gray-600 mb-1">
+                            <i class="fa-solid fa-camera text-primary mr-1"></i> 
+                            拍照建议：鲜花台、猎鹰台、人体草原
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            <i class="fa-solid fa-info-circle text-primary mr-1"></i> 
+                            喀拉峻草原是西天山向伊犁河谷的过渡地带，被联合国粮农组织誉为"世界上少有的高山天然优质大草原"。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 第三天 -->
+                <div class="day-section">
+                    <h3 class="text-lg font-bold mb-2 flex items-center">
+                        <span class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">3</span>
+                        Day 3 (6月14日)：那拉提草原
+                    </h3>
+                    
+                    <div class="schedule-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-semibold">🚗 交通行程</h4>
+                            <span class="text-xs bg-gray-100 text-gray-600 py-0.5 px-2 rounded">上午</span>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            <i class="fa-solid fa-car text-primary mr-1"></i> 
+                            喀拉峻草原 → 那拉提草原 (包车，约3小时)
+                        </p>
+                    </div>
+                    
+                    <div class="schedule-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-semibold">🌱 那拉提草原</h4>
+                            <span class="text-xs bg-blue-100 text-blue-600 py-0.5 px-2 rounded">4小时</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 mb-2">
+                            <img src="https://picsum.photos/seed/nalati1/200/150" alt="那拉提草原" class="rounded-lg object-cover h-16">
+                            <img src="https://picsum.photos/seed/nalati2/200/150" alt="那拉提草原" class="rounded-lg object-cover h-16">
+                            <img src="https://picsum.photos/seed/nalati3/200/150" alt="那拉提草原" class="rounded-lg object-cover h-16">
+                        </div>
+                        <p class="text-sm text-gray-600 mb-1">
+                            <i class="fa-solid fa-ticket text-primary mr-1"></i> 
+                            门票：95元/人 | 开放时间：8:00-20:00
+                        </p>
+                        <p class="text-sm text-gray-600 mb-1">
+                            <i class="fa-solid fa-camera text-primary mr-1"></i> 
+                            拍照建议：空中草原、河谷草原、民俗家访
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            <i class="fa-solid fa-info-circle text-primary mr-1"></i> 
+                            那拉提草原是发育在第三纪古洪积层上的中山地草原，自古以来就是著名的牧场。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 第四天 -->
+                <div class="day-section">
+                    <h3 class="text-lg font-bold mb-2 flex items-center">
+                        <span class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">4</span>
+                        Day 4 (6月15日)：霍城薰衣草基地 → 伊宁返程
+                    </h3>
+                    
+                    <div class="schedule-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-semibold">🚗 交通行程</h4>
+                            <span class="text-xs bg-gray-100 text-gray-600 py-0.5 px-2 rounded">上午</span>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            <i class="fa-solid fa-car text-primary mr-1"></i> 
+                            那拉提草原 → 霍城薰衣草基地 (包车，约3小时)
+                        </p>
+                    </div>
+                    
+                    <div class="schedule-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-semibold">💜 霍城薰衣草基地</h4>
+                            <span class="text-xs bg-blue-100 text-blue-600 py-0.5 px-2 rounded">2小时</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 mb-2">
+                            <img src="https://picsum.photos/seed/xunyi1/200/150" alt="霍城薰衣草" class="rounded-lg object-cover h-16">
+                            <img src="https://picsum.photos/seed/xunyi2/200/150" alt="霍城薰衣草" class="rounded-lg object-cover h-16">
+                            <img src="https://picsum.photos/seed/xunyi3/200/150" alt="霍城薰衣草" class="rounded-lg object-cover h-16">
+                        </div>
+                        <p class="text-sm text-gray-600 mb-1">
+                            <i class="fa-solid fa-ticket text-primary mr-1"></i> 
+                            门票：35元/人 | 开放时间：9:00-19:00
+                        </p>
+                        <p class="text-sm text-gray-600 mb-1">
+                            <i class="fa-solid fa-camera text-primary mr-1"></i> 
+                            拍照建议：花田小径、风车、欧式建筑
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            <i class="fa-solid fa-info-circle text-primary mr-1"></i> 
+                            霍城县是中国的薰衣草之乡，是继法国普罗旺斯、日本富良野之后的世界第三大薰衣草种植基地。
+                        </p>
+                    </div>
+                    
+                    <div class="schedule-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-semibold">✈️ 返程</h4>
+                            <span class="text-xs bg-gray-100 text-gray-600 py-0.5 px-2 rounded">下午</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-1">
+                            <i class="fa-solid fa-car text-primary mr-1"></i> 
+                            霍城薰衣草基地 → 伊宁机场 (包车，约1.5小时)
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            <i class="fa-solid fa-plane-departure text-primary mr-1"></i> 
+                            伊宁机场 → 乌鲁木齐地窝堡机场 (约1小时)
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 餐饮推荐 -->
+            <section class="ios-card">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-dark">🍴 餐饮推荐</h2>
+                    <div class="flex space-x-2">
+                        <button class="text-xs bg-primary/10 text-primary py-1 px-3 rounded-full hover:bg-primary/20 transition-colors">
+                            <i class="fa-solid fa-cutlery"></i> 全部
+                        </button>
+                        <button class="text-xs bg-gray-100 text-gray-600 py-1 px-3 rounded-full hover:bg-gray-200 transition-colors">
+                            <i class="fa-solid fa-coffee"></i> 早餐
+                        </button>
+                        <button class="text-xs bg-gray-100 text-gray-600 py-1 px-3 rounded-full hover:bg-gray-200 transition-colors">
+                            <i class="fa-solid fa-utensils"></i> 午餐
+                        </button>
+                        <button class="text-xs bg-gray-100 text-gray-600 py-1 px-3 rounded-full hover:bg-gray-200 transition-colors">
+                            <i class="fa-solid fa-moon"></i> 晚餐
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="schedule-item">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-semibold">早餐：古兰丹姆手工冰淇淋</h3>
+                            <span class="text-xs bg-green-100 text-green-600 py-0.5 px-2 rounded">人均 ¥20</span>
+                        </div>
+                        <div class="flex items-start">
+                            <img src="https://picsum.photos/seed/breakfast/100/100" alt="古兰丹姆手工冰淇淋" class="w-20 h-20 rounded-lg object-cover mr-3">
+                            <div>
+                                <p class="text-sm text-gray-600 mb-1">
+                                    <i class="fa-solid fa-map-marker text-primary mr-1"></i> 
+                                    伊宁市六星街
+                                </p>
+                                <p class="text-sm text-gray-600 mb-1">
+                                    <i class="fa-solid fa-star text-yellow-400 mr-1"></i> 
+                                    推荐：经典原味+免费加料
+                                </p>
+                                <p class="text-sm text-gray-600">
+                                    这家店的冰淇淋采用传统工艺制作，口感细腻，搭配当地特色果酱，是早餐的不错选择。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-item">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-semibold">午餐：蓝墙面肺子</h3>
+                            <span class="text-xs bg-green-100 text-green-600 py-0.5 px-2 rounded">人均 ¥30</span>
+                        </div>
+                        <div class="flex items-start">
+                            <img src="https://picsum.photos/seed/lunch/100/100" alt="蓝墙面肺子" class="w-20 h-20 rounded-lg object-cover mr-3">
+                            <div>
+                                <p class="text-sm text-gray-600 mb-1">
+                                    <i class="fa-solid fa-map-marker text-primary mr-1"></i> 
+                                    伊宁市赛依拉木街
+                                </p>
+                                <p class="text-sm text-gray-600 mb-1">
+                                    <i class="fa-solid fa-star text-yellow-400 mr-1"></i> 
+                                    推荐：面肺子、米肠子
+                                </p>
+                                <p class="text-sm text-gray-600">
+                                    面肺子是新疆特色美食，这家店的面肺子口感软嫩，搭配特制酱料，味道十分地道。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-item">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-semibold">晚餐：阿依乐餐厅</h3>
+                            <span class="text-xs bg-green-100 text-green-600 py-0.5 px-2 rounded">人均 ¥80</span>
+                        </div>
+                        <div class="flex items-start">
+                            <img src="https://picsum.photos/seed/dinner/100/100" alt="阿依乐餐厅" class="w-20 h-20 rounded-lg object-cover mr-3">
+                            <div>
+                                <p class="text-sm text-gray-600 mb-1">
+                                    <i class="fa-solid fa-map-marker text-primary mr-1"></i> 
+                                    伊宁市经济合作区
+                                </p>
+                                <p class="text-sm text-gray-600 mb-1">
+                                    <i class="fa-solid fa-star text-yellow-400 mr-1"></i> 
+                                    推荐：大盘鸡、手抓饭
+                                </p>
+                                <p class="text-sm text-gray-600">
+                                    这家餐厅以新疆传统美食为主，环境优雅，大盘鸡鸡肉鲜嫩，土豆绵软，汤汁浓郁。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4 p-4 bg-yellow-50 rounded-lg">
+                    <h4 class="font-semibold text-yellow-800 mb-2">🍇 伊犁特色美食</h4>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-circle text-xs text-yellow-600 mr-2"></i>
+                            大盘鸡
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-circle text-xs text-yellow-600 mr-2"></i>
+                            手抓饭
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-circle text-xs text-yellow-600 mr-2"></i>
+                            烤包子
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-circle text-xs text-yellow-600 mr-2"></i>
+                            羊肉串
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-circle text-xs text-yellow-600 mr-2"></i>
+                            馕坑肉
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-circle text-xs text-yellow-600 mr-2"></i>
+                            奶茶
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 住宿安排 -->
+            <section class="ios-card">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-dark">🏨 住宿安排</h2>
+                    <div class="flex space-x-2">
+                        <button class="text-xs bg-primary/10 text-primary py-1 px-3 rounded-full hover:bg-primary/20 transition-colors">
+                            <i class="fa-solid fa-star text-yellow-400"></i> 全部
+                        </button>
+                        <button class="text-xs bg-gray-100 text-gray-600 py-1 px-3 rounded-full hover:bg-gray-200 transition-colors">
+                            <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i> 经济型
+                        </button>
+                        <button class="text-xs bg-gray-100 text-gray-600 py-1 px-3 rounded-full hover:bg-gray-200 transition-colors">
+                            <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i> 舒适型
+                        </button>
+                        <button class="text-xs bg-gray-100 text-gray-600 py-1 px-3 rounded-full hover:bg-gray-200 transition-colors">
+                            <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i> 豪华型
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="schedule-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-semibold">经济型：伊宁新发地国际酒店</h3>
+                            <span class="text-xs bg-green-100 text-green-600 py-0.5 px-2 rounded">¥200/晚起</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row">
+                            <img src="https://picsum.photos/seed/hotel1/200/150" alt="伊宁新发地国际酒店" class="w-full sm:w-32 h-24 rounded-lg object-cover mb-2 sm:mb-0 sm:mr-3">
+                            <div class="flex-1">
+                                <div class="flex items-center text-yellow-400 mb-1">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <span class="text-xs text-gray-500 ml-1">4.2分 (120条评价)</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-1">
+                                    <i class="fa-solid fa-map-marker text-primary mr-1"></i> 
+                                    伊宁市重庆北路
+                                </p>
+                                <p class="text-sm text-gray-600 mb-1">
+                                    <i class="fa-solid fa-car text-primary mr-1"></i> 
+                                    距离赛里木湖：2小时车程
+                                </p>
+                                <p class="text-sm text-gray-600">
+                                    酒店位置便利，房间干净整洁，提供免费早餐和停车场，适合预算有限的旅行者。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-semibold">舒适型：伊犁伊力特大酒店</h3>
+                            <span class="text-xs bg-green-100 text-green-600 py-0.5 px-2 rounded">¥400/晚起</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row">
+                            <img src="https://picsum.photos/seed/hotel2/200/150" alt="伊犁伊力特大酒店" class="w-full sm:w-32 h-24 rounded-lg object-cover mb-2 sm:mb-0 sm:mr-3">
+                            <div class="flex-1">
+                                <div class="flex items-center text-yellow-400 mb-1">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <span class="text-xs text-gray-500 ml-1">4.6分 (280条评价)</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-1">
+                                    <i class="fa-solid fa-map-marker text-primary mr-1"></i> 
+                                    伊宁市胜利北路
+                                </p>
+                                <p class="text-sm text-gray-600 mb-1">
+                                    <i class="fa-solid fa-car text-primary mr-1"></i> 
+                                    距离喀拉峻：2.5小时车程
+                                </p>
+                                <p class="text-sm text-gray-600">
+                                    四星级酒店，设施完善，服务周到，提供健身房、游泳池等休闲设施，房间宽敞舒适。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-semibold">豪华型：那拉提牧星谷星空酒店</h3>
+                            <span class="text-xs bg-green-100 text-green-600 py-0.5 px-2 rounded">¥800/晚起</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row">
+                            <img src="https://picsum.photos/seed/hotel3/200/150" alt="那拉提牧星谷星空酒店" class="w-full sm:w-32 h-24 rounded-lg object-cover mb-2 sm:mb-0 sm:mr-3">
+                            <div class="flex-1">
+                                <div class="flex items-center text-yellow-400 mb-1">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span class="text-xs text-gray-500 ml-1">4.9分 (150条评价)</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-1">
+                                    <i class="fa-solid fa-map-marker text-primary mr-1"></i> 
+                                    那拉提景区附近
+                                </p>
+                                <p class="text-sm text-gray-600 mb-1">
+                                    <i class="fa-solid fa-moon text-primary mr-1"></i> 
+                                    特色：草原星空观景
+                                </p>
+                                <p class="text-sm text-gray-600">
+                                    酒店位于草原腹地，房间采用哈萨克族风格设计，晚上可以欣赏到璀璨的星空，提供骑马等特色活动。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 费用总结 -->
+            <section class="ios-card">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-dark">💰 费用总结（人均）</h2>
+                    <div class="flex space-x-2">
+                        <button class="text-xs bg-primary/10 text-primary py-1 px-3 rounded-full hover:bg-primary/20 transition-colors">
+                            <i class="fa-solid fa-calculator"></i> 总览
+                        </button>
+                        <button class="text-xs bg-gray-100 text-gray-600 py-1 px-3 rounded-full hover:bg-gray-200 transition-colors">
+                            <i class="fa-solid fa-chart-pie"></i> 图表
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="cost-item">
+                        <span class="text-gray-700">交通费用（往返机票+包车）</span>
+                        <span class="font-medium">¥3200</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="text-gray-700">住宿费用（3晚）</span>
+                        <span class="font-medium">¥1200</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="text-gray-700">餐饮费用（4天）</span>
+                        <span class="font-medium">¥600</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="text-gray-700">景点门票</span>
+                        <span class="font-medium">¥375</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="text-gray-700">其他费用（购物、活动）</span>
+                        <span class="font-medium">¥500</span>
+                    </div>
+                    <div class="cost-item border-b-0 pt-2">
+                        <span class="text-gray-700 font-semibold">总预算</span>
+                        <span class="font-bold text-primary">¥6875</span>
+                    </div>
+                </div>
+                
+                <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                    <h4 class="font-semibold text-blue-800 mb-2">💡 费用说明</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• 交通费用包含深圳-乌鲁木齐-伊宁往返机票及当地包车费用</li>
+                        <li>• 住宿费用按舒适型酒店计算，可根据需求调整</li>
+                        <li>• 餐饮费用为预估平均消费，实际可能有所波动</li>
+                        <li>• 其他费用包含纪念品购买、骑马等特色活动</li>
                     </ul>
                 </div>
-                <div class="footer-social">
-                    <h3>关注我</h3>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-weixin"></i></a>
-                        <a href="#"><i class="fab fa-weibo"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+            </section>
+
+            <!-- 额外提示 -->
+            <section class="ios-card">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-dark">⚠️ 额外提示</h2>
+                    <button class="text-primary hover:text-primary/80 transition-colors">
+                        <i class="fa-solid fa-share-alt"></i> 分享提示
+                    </button>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="p-4 bg-red-50 rounded-lg border-l-4 border-red-400">
+                        <h3 class="font-semibold text-red-800 mb-2">🌍 文化禁忌</h3>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• 新疆是多民族地区，尊重当地宗教信仰和风俗习惯</li>
+                            <li>• 避免谈论猪相关话题，在清真餐厅禁食非清真食品</li>
+                            <li>• 女性穿着应避免过于暴露，尤其在宗教场所</li>
+                            <li>• 未经允许，不要随意拍摄当地居民</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
+                        <h3 class="font-semibold text-green-800 mb-2">📦 必备物品</h3>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• 防晒霜（新疆紫外线强）、墨镜、遮阳帽</li>
+                            <li>• 保暖衣物（昼夜温差大，尤其晚上需要外套）</li>
+                            <li>• 身份证（新疆安检严格，随身携带）</li>
+                            <li>• 常用药品（感冒药、肠胃药、晕车药等）</li>
+                            <li>• 水壶（保持水分，气候干燥）</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                        <h3 class="font-semibold text-blue-800 mb-2">📞 紧急联系方式</h3>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• 伊犁州人民医院：0999-8024113</li>
+                            <li>• 报警电话：110</li>
+                            <li>• 旅游投诉：12301</li>
+                            <li>• 包车司机：138XXXXXXXX（提前联系确认）</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-400">
+                        <h3 class="font-semibold text-yellow-800 mb-2">🎁 特色纪念品</h3>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• 薰衣草精油、干花（霍城特产）</li>
+                            <li>• 新疆干果（葡萄干、巴旦木、核桃等）</li>
+                            <li>• 哈萨克族手工刺绣、地毯</li>
+                            <li>• 英吉沙小刀（工艺品，注意携带规定）</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 KaFungyu. 保留所有权利。</p>
-            </div>
-        </div>
-    </footer>
+            </section>
+        </main>
 
-    <script src="js/main.js"></script>
+        <!-- 底部操作栏 -->
+        <footer class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-t py-4 px-4">
+            <div class="container mx-auto max-w-3xl flex justify-between">
+                <button class="ios-button flex-1 mr-2">
+                    <i class="fa-solid fa-calendar-plus mr-2"></i> 添加到日历
+                </button>
+                <button class="ios-button flex-1 ml-2">
+                    <i class="fa-solid fa-download mr-2"></i> 保存攻略
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // 添加页面滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 添加iOS风格的卡片交互效果
+        document.querySelectorAll('.ios-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('shadow-lg', 'transform', 'scale-[1.01]');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('shadow-lg', 'transform', 'scale-[1.01]');
+            });
+        });
+    </script>
 </body>
 </html>
+    
